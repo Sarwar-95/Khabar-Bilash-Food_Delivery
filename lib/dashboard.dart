@@ -45,7 +45,9 @@ class _foodDeliveryState extends State<foodDelivery> {
             iconSize: 30,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              //Navigator.push(context,MaterialPageRoute(builder: builder))
+            },
             icon: Icon(Icons.card_giftcard),
             color: Colors.white,
             iconSize: 30,
@@ -722,7 +724,6 @@ class Card extends StatelessWidget {
               children: [
                 CircleAvatar(
                   //child: circleImg,
-
                   radius: 50,
                   backgroundImage: AssetImage(ImgList[0]["img"]!),
                 ),

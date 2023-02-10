@@ -11,13 +11,27 @@ import 'package:newapp/Cuisines/Kebab/kebab.dart';
 import 'package:newapp/Cuisines/Pasta/pasta.dart';
 import 'package:newapp/Cuisines/Snack/snack.dart';
 import 'package:newapp/Cuisines/Soups/soups.dart';
+import 'package:newapp/Extra/Home_page.dart';
+import 'package:newapp/Extra/cart_model.dart';
+import 'package:newapp/Extra/practice_1.dart';
+import 'package:newapp/practice.dart';
+import 'package:newapp/provider/app_design.dart';
+import 'package:newapp/provider/counter_provider.dart';
+import 'package:provider/provider.dart';
+import 'Extra/practice_3.dart';
 import 'SignIn/signIn.dart';
 import 'SignUp/signup.dart';
 import 'SplashScreen/splashScreen.dart';
 import 'dashboard.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MultiProvider(providers: [
+      ChangeNotifierProvider(create: (_)=>CounterApp(),),
+      ChangeNotifierProvider(create: (_)=>cartModel()),
+      ChangeNotifierProvider(create: (_) => CardItem()),
+      ],
+    child: MyApp()) );
 }
 
 class MyApp extends StatelessWidget {
@@ -28,12 +42,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home:
+        
           //-----------------------
-          //foodDelivery(),
+          foodDelivery(),
           //----------------------
-          SplashScreen(),
+          //SplashScreen(),
+           
+          //Counter()
+          //Home(),
 
-          // SignIn()
+          //SignIn()
           //SignUp()
 
       // ---Cuisines---
@@ -48,6 +66,11 @@ class MyApp extends StatelessWidget {
       //Pizza()
       //Snack()
       //Soups()
+
+      //----Practice------
+      //Practice(),
+      //HomePage()
+      //MyWidget()
     );
   }
 }

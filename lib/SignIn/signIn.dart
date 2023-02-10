@@ -9,7 +9,8 @@ class SignIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.deepPurple.shade200,
+        backgroundColor: Colors.black,
+        resizeToAvoidBottomInset: false, // bottom overflow
         body: Container(
           child: Stack(children: [
             Column(
@@ -18,19 +19,6 @@ class SignIn extends StatelessWidget {
                 Container(
                   height: MediaQuery.of(context).size.height * .3,
                   width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(50),
-                        bottomRight: Radius.circular(50)),
-                    gradient: LinearGradient(
-                        begin: Alignment.bottomLeft,
-                        end: Alignment.center,
-                        colors: [
-                          Colors.deepPurple,
-                          Colors.deepPurple.shade900,
-                          Colors.deepPurple.shade500,
-                        ]),
-                  ),
                   child: ListView(
                     children: [
                       Padding(
@@ -74,13 +62,6 @@ class SignIn extends StatelessWidget {
                 Container(
                   height: MediaQuery.of(context).size.height * .7,
                   decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.bottomLeft,
-                          colors: [
-                            Colors.white,
-                            Colors.deepPurple.shade200,
-                            Colors.deepPurpleAccent.shade100
-                          ]),
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(50),
@@ -89,6 +70,7 @@ class SignIn extends StatelessWidget {
                     padding:
                         const EdgeInsets.only(left: 25, right: 25, top: 40),
                     child: ListView(
+                      scrollDirection: Axis.vertical,
                       children: [
                         //--------------------TextField(1)
                         TextField(
@@ -96,11 +78,10 @@ class SignIn extends StatelessWidget {
                               color: Colors.black, fontWeight: FontWeight.w700),
                           decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.deepPurple),
+                              borderSide: BorderSide(color: Colors.black),
                             ),
                             focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.deepPurple),
+                                borderSide: BorderSide(color: Colors.black),
                                 borderRadius: BorderRadius.circular(30)),
 
                             //--------------------Email Icon
@@ -108,7 +89,7 @@ class SignIn extends StatelessWidget {
                               padding: const EdgeInsets.only(left: 10),
                               child: Icon(
                                 Icons.email,
-                                color: Colors.deepPurple,
+                                color: Colors.black,
                               ),
                             ),
                             hintText: 'Email',
@@ -125,12 +106,11 @@ class SignIn extends StatelessWidget {
                               color: Colors.black, fontWeight: FontWeight.w800),
                           decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.deepPurple),
+                              borderSide: BorderSide(color: Colors.black),
                             ),
 
                             focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.deepPurple),
+                                borderSide: BorderSide(color: Colors.black),
                                 borderRadius: BorderRadius.circular(30)),
 
                             //--------------------Lock Icon
@@ -138,7 +118,7 @@ class SignIn extends StatelessWidget {
                               padding: const EdgeInsets.only(left: 10),
                               child: Icon(
                                 Icons.lock,
-                                color: Colors.deepPurple,
+                                color: Colors.black,
                               ),
                             ),
                             hintText: 'Password',
@@ -158,7 +138,7 @@ class SignIn extends StatelessWidget {
                             ),
                             Switch(
                                 activeColor: Colors.white,
-                                activeTrackColor: Colors.deepPurple,
+                                activeTrackColor: Colors.black,
                                 value: true,
                                 onChanged: (value) {})
                           ],
@@ -171,7 +151,7 @@ class SignIn extends StatelessWidget {
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
                                 shape: StadiumBorder(),
-                                primary: Colors.deepPurple,
+                                primary: Colors.black,
                                 elevation: 25,
                                 shadowColor: Color.fromARGB(255, 77, 13, 225)),
                             child: Text(
@@ -207,7 +187,7 @@ class SignIn extends StatelessWidget {
                                   child: Text(
                                     'Sign up',
                                     style: TextStyle(
-                                        color: Colors.deepPurple,
+                                        color: Colors.deepOrange,
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold),
                                   ))

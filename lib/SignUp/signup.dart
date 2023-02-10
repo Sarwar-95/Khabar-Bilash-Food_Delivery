@@ -13,7 +13,8 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple.shade200,
+      backgroundColor: Colors.black,
+      resizeToAvoidBottomInset: false, // bottom overflow
       body: Container(
         height: MediaQuery.of(context).size.height,
         child: Stack(children: [
@@ -28,14 +29,7 @@ class SignUp extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(50),
                       bottomRight: Radius.circular(50)),
-                  gradient: LinearGradient(
-                      begin: Alignment.bottomLeft,
-                      end: Alignment.center,
-                      colors: [
-                        Colors.deepPurple,
-                        Colors.deepPurple.shade900,
-                        Colors.deepPurple.shade500,
-                      ]),
+                  color: Colors.black,
                 ),
                 child: Row(
                   children: [
@@ -68,13 +62,6 @@ class SignUp extends StatelessWidget {
                 // height: double.infinity,
                 height: MediaQuery.of(context).size.height * .8,
                 decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.bottomLeft,
-                        colors: [
-                          Colors.white,
-                          Colors.deepPurple.shade200,
-                          Colors.deepPurpleAccent.shade100
-                        ]),
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(50),
@@ -90,10 +77,10 @@ class SignUp extends StatelessWidget {
                             color: Colors.black, fontWeight: FontWeight.w700),
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.deepPurple),
+                            borderSide: BorderSide(color: Colors.black),
                           ),
                           focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.deepPurple),
+                              borderSide: BorderSide(color: Colors.black),
                               borderRadius: BorderRadius.circular(30)),
 
                           //--------------------Email Icon
@@ -101,7 +88,7 @@ class SignUp extends StatelessWidget {
                             padding: const EdgeInsets.only(left: 10),
                             child: Icon(
                               Icons.person,
-                              color: Colors.deepPurple,
+                              color: Colors.black,
                             ),
                           ),
                           hintText: 'User Name',
@@ -118,10 +105,10 @@ class SignUp extends StatelessWidget {
                             color: Colors.black, fontWeight: FontWeight.w700),
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.deepPurple),
+                            borderSide: BorderSide(color: Colors.black),
                           ),
                           focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.deepPurple),
+                              borderSide: BorderSide(color: Colors.black),
                               borderRadius: BorderRadius.circular(30)),
 
                           //--------------------Email Icon
@@ -129,7 +116,7 @@ class SignUp extends StatelessWidget {
                             padding: const EdgeInsets.only(left: 10),
                             child: Icon(
                               Icons.email,
-                              color: Colors.deepPurple,
+                              color: Colors.black,
                             ),
                           ),
                           hintText: 'Email',
@@ -146,10 +133,10 @@ class SignUp extends StatelessWidget {
                             color: Colors.black, fontWeight: FontWeight.w700),
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.deepPurple),
+                            borderSide: BorderSide(color: Colors.black),
                           ),
                           focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.deepPurple),
+                              borderSide: BorderSide(color: Colors.black),
                               borderRadius: BorderRadius.circular(30)),
 
                           //--------------------Email Icon
@@ -157,7 +144,7 @@ class SignUp extends StatelessWidget {
                             padding: const EdgeInsets.only(left: 10),
                             child: Icon(
                               Icons.phone,
-                              color: Colors.deepPurple,
+                              color: Colors.black,
                             ),
                           ),
                           hintText: 'Phone',
@@ -174,11 +161,11 @@ class SignUp extends StatelessWidget {
                             color: Colors.black, fontWeight: FontWeight.w800),
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.deepPurple),
+                            borderSide: BorderSide(color: Colors.black),
                           ),
 
                           focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.deepPurple),
+                              borderSide: BorderSide(color: Colors.black),
                               borderRadius: BorderRadius.circular(30)),
 
                           //--------------------Lock Icon
@@ -186,7 +173,7 @@ class SignUp extends StatelessWidget {
                             padding: const EdgeInsets.only(left: 10),
                             child: Icon(
                               Icons.lock,
-                              color: Colors.deepPurple,
+                              color: Colors.black,
                             ),
                           ),
                           hintText: 'Password',
@@ -206,7 +193,7 @@ class SignUp extends StatelessWidget {
                           ),
                           Switch(
                               activeColor: Colors.white,
-                              activeTrackColor: Colors.deepPurple,
+                              activeTrackColor: Colors.black,
                               value: true,
                               onChanged: (value) {})
                         ],
@@ -231,7 +218,7 @@ class SignUp extends StatelessWidget {
                           },
                           style: ElevatedButton.styleFrom(
                               shape: StadiumBorder(),
-                              primary: Colors.deepPurple,
+                              primary: Colors.black,
                               elevation: 25,
                               shadowColor: Color.fromARGB(255, 77, 13, 225)),
                           child: Text(
@@ -262,7 +249,7 @@ class SignUp extends StatelessWidget {
                                 child: Text(
                                   'Login',
                                   style: TextStyle(
-                                      color: Colors.deepPurple,
+                                      color: Colors.deepOrange,
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold),
                                 ))

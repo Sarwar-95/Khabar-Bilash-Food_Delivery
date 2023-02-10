@@ -16,15 +16,15 @@ class _SplashScreenState extends State<SplashScreen> {
 
 
   //---------------------Navigation to log in page-----------------
-  // @override
-  //  void initState() {
-  //    super.initState();
-  //    Timer(
-  //      Duration(seconds: 5),
-  //      (() => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (
-  //        (BuildContext context) => foodDelivery()))))
-  //    );
-  //  }
+  @override
+   void initState() {
+     super.initState();
+     Timer(
+       Duration(seconds: 5),
+       (() => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (
+         (BuildContext context) => foodDelivery()))))
+     );
+   }
 
   //----------------------------------------------------------------
 
