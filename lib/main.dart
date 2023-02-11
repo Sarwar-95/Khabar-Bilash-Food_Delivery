@@ -14,10 +14,12 @@ import 'package:newapp/Cuisines/Soups/soups.dart';
 import 'package:newapp/Extra/Home_page.dart';
 import 'package:newapp/Extra/cart_model.dart';
 import 'package:newapp/Extra/practice_1.dart';
+import 'package:newapp/order_model.dart';
 import 'package:newapp/practice.dart';
 import 'package:newapp/provider/app_design.dart';
 import 'package:newapp/provider/counter_provider.dart';
 import 'package:provider/provider.dart';
+import 'Cuisines/Biryani/bustine.dart';
 import 'Extra/practice_3.dart';
 import 'SignIn/signIn.dart';
 import 'SignUp/signup.dart';
@@ -30,6 +32,7 @@ void main() {
       ChangeNotifierProvider(create: (_)=>CounterApp(),),
       ChangeNotifierProvider(create: (_)=>cartModel()),
       ChangeNotifierProvider(create: (_) => CardItem()),
+       ChangeNotifierProvider(create: (_) => OrderModel()), // Main work
       ],
     child: MyApp()) );
 }
@@ -44,9 +47,9 @@ class MyApp extends StatelessWidget {
       home:
         
           //-----------------------
-          foodDelivery(),
+          //foodDelivery(),
           //----------------------
-          //SplashScreen(),
+          SplashScreen(),
            
           //Counter()
           //Home(),
@@ -56,7 +59,8 @@ class MyApp extends StatelessWidget {
 
       // ---Cuisines---
       //Biryani(),
-      //Undal(),
+          //Undal(),
+          //Bustine()
       //Burgers(),
       //Cafe()
       //Chicken()

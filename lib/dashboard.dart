@@ -12,6 +12,8 @@ import 'package:newapp/Cuisines/Kebab/kebab.dart';
 import 'package:newapp/Cuisines/Pasta/pasta.dart';
 import 'package:newapp/Cuisines/Snack/snack.dart';
 import 'package:newapp/Cuisines/Soups/soups.dart';
+import 'package:newapp/const/colors.dart';
+import 'package:newapp/order_page.dart';
 
 class foodDelivery extends StatefulWidget {
   const foodDelivery({super.key});
@@ -24,7 +26,7 @@ class _foodDeliveryState extends State<foodDelivery> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 38, 34, 44),
+      backgroundColor: BackgroundColor,
       //backgroundColor: Colors.deepPurpleAccent,
       //==============(APP BAR)===================
       appBar: AppBar(
@@ -46,7 +48,9 @@ class _foodDeliveryState extends State<foodDelivery> {
           ),
           IconButton(
             onPressed: () {
-              //Navigator.push(context,MaterialPageRoute(builder: builder))
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return OrderPage();
+              }));
             },
             icon: Icon(Icons.card_giftcard),
             color: Colors.white,
@@ -546,7 +550,7 @@ class Body extends StatelessWidget {
                   ),
                   Card(),
                   SizedBox(
-                     width: 20,
+                    width: 20,
                   ),
                   Card(),
                   SizedBox(
@@ -714,9 +718,7 @@ class Card extends StatelessWidget {
               color: Color.fromARGB(255, 38, 34, 44),
               boxShadow: [
                 BoxShadow(
-                    color: Colors.white,
-                    blurRadius: 10,
-                    offset: Offset(3, 7)),
+                    color: Colors.white, blurRadius: 10, offset: Offset(3, 7)),
               ]),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -734,7 +736,8 @@ class Card extends StatelessWidget {
                 Text(
                   "Burger",
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
                 ),
                 //-------------------------------------------------
                 Text(
