@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:newapp/order_model.dart';
-import 'package:newapp/order_page.dart';
 import 'package:provider/provider.dart';
+import '../../../cart/order_model.dart';
+import '../../../cart/order_page.dart';
 
 class Bustine extends StatelessWidget {
   final track = 4;

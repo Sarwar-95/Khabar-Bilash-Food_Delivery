@@ -4,6 +4,12 @@ import 'package:flutter/src/widgets/framework.dart';
 
 class OrderModel extends ChangeNotifier {
   
+
+  //==================================================
+  //-------------------- Data Loading ----------------
+  
+
+  //  Undal 
   final List _itemsUndal = [
     [
       "Chicken Rice Bowls",
@@ -31,6 +37,7 @@ class OrderModel extends ChangeNotifier {
 
 //=================================================================
 
+//Pach Bhai
  final List _itemsPachBhai = [
     [
       "Chicken Rice Bowls",
@@ -57,7 +64,8 @@ class OrderModel extends ChangeNotifier {
   get itemsPachBhai => _itemsPachBhai;
 
  //====================================================
-
+   
+  //Panchi
   final List _itemsPanchi = [
     [
       "Chicken Rice Bowls",
@@ -84,7 +92,8 @@ class OrderModel extends ChangeNotifier {
   get itemsPanchi => _itemsPanchi; 
 
   //==================================================
-
+  
+  //Bustine
   final List _itemsBustine = [
     [
       "Chicken Rice Bowls -D",
@@ -110,11 +119,20 @@ class OrderModel extends ChangeNotifier {
 
   get itemsBustine => _itemsBustine; 
   
-  //===================================================
+  //=========================XXXXXXXXXX==========================
+  //=========================XXXXXXXXXX==========================
+  //=========================XXXXXXXXXX==========================
+
   
+  // Blank List
   final List _cartAdd = [];
 
   get cartAdd => _cartAdd;
+  
+
+  //======================= Functions ===========================
+  //======================= Functions ===========================
+  //======================= Functions ===========================
 
   void cartItemsAdd(int index, int track) {
 
@@ -139,13 +157,14 @@ class OrderModel extends ChangeNotifier {
     }
     notifyListeners();
   }
-
+  
+  //------------------------------------------------------
   void removeItem(int index) {
     _cartAdd.removeAt(index);
-    print("Asi ba");
     notifyListeners();
   }
 
+ //-------------------------------------------------------
   String calculate() {
     double totalPrice = 0;
     for (int i = 0; i < _cartAdd.length; i++) {
@@ -153,4 +172,5 @@ class OrderModel extends ChangeNotifier {
     }
     return totalPrice.toStringAsFixed(2);
   }
+
 }

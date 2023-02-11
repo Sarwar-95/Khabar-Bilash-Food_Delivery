@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../order_model.dart';
-import '../../order_page.dart';
+import '../../../cart/order_model.dart';
+import '../../../cart/order_page.dart';
 
 class Undal extends StatelessWidget {
   const Undal({super.key});

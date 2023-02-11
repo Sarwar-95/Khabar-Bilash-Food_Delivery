@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:newapp/const/colors.dart';
-import 'package:newapp/dashboard.dart';
+import 'package:newapp/views/home_screen.dart/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -36,8 +36,6 @@ class _SplashScreenState extends State<SplashScreen> {
         backgroundColor: BackgroundColor,
         body: Center(
           child: Column(
-            // crossAxisAlignment: CrossAxisAlignment.center,
-            // mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
                 padding: EdgeInsets.only(top: 150),

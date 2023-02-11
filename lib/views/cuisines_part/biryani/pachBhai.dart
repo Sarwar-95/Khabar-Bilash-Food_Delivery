@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 
-import '../../order_model.dart';
-import '../../order_page.dart';
-//import 'package:flutter/Cuisines/Biryani/panshi.dart';
+import '../../../cart/order_model.dart';
+import '../../../cart/order_page.dart';
 
-class Panshi extends StatelessWidget {
-  const Panshi({super.key});
 
-  final track = 3;
+class PachBhai extends StatelessWidget {
+  const PachBhai({super.key});
+  final track = 2;
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
@@ -71,7 +71,7 @@ class Panshi extends StatelessWidget {
                     padding: EdgeInsets.all(20),
                     child: Column(children: [
                       Text(
-                        "Panshi Restaurant",
+                        "Pach Bhai Restaurant",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
@@ -122,7 +122,7 @@ class Panshi extends StatelessWidget {
             child: Consumer<OrderModel>(
               builder: (context, value, child) {
                 return ListView.builder(
-                    itemCount: value.itemsPanchi.length,
+                    itemCount: value.itemsPachBhai.length,
                     itemBuilder: ((context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(10.0),
@@ -148,7 +148,7 @@ class Panshi extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(20),
                                       image: DecorationImage(
                                           image: NetworkImage(
-                                              value.itemsPanchi[index][2]),
+                                              value.itemsPachBhai[index][2]),
                                           fit: BoxFit.fill)),
                                 ),
 
@@ -162,7 +162,7 @@ class Panshi extends StatelessWidget {
                                   children: [
                                     //------------------1
                                     Text(
-                                      value.itemsPanchi[index][0],
+                                      value.itemsPachBhai[index][0],
                                       style: TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold,
@@ -170,7 +170,7 @@ class Panshi extends StatelessWidget {
                                     ),
                                     //------------------2
                                     Text(
-                                      "Price :" + value.itemsPanchi[index][1],
+                                      "Price :" + value.itemsPachBhai[index][1],
                                       style: TextStyle(
                                           fontSize: 15,
                                           fontWeight: FontWeight.bold,

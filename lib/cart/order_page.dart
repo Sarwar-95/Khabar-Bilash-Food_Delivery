@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:newapp/order_model.dart';
+import 'package:newapp/cart/order_model.dart';
+import 'package:newapp/const/colors.dart';
 import 'package:provider/provider.dart';
 
 class OrderPage extends StatelessWidget {
@@ -10,7 +11,7 @@ class OrderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: BackgroundColor,
       appBar: AppBar(
         backgroundColor: Colors.black,
         leading: IconButton(

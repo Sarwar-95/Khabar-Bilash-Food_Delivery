@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:newapp/Cuisines/Biryani/pachBhai.dart';
-import 'package:newapp/Cuisines/Biryani/panshi.dart';
-import 'package:newapp/Cuisines/Biryani/undal.dart';
+import 'package:newapp/views/cuisines_part/biryani/pachBhai.dart';
+import 'package:newapp/views/cuisines_part/biryani/panshi.dart';
+import 'package:newapp/views/cuisines_part/biryani/undal.dart';
 
 class Biryani extends StatelessWidget {
   const Biryani({super.key});
