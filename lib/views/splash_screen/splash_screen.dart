@@ -1,10 +1,15 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:newapp/const/colors.dart';
 import 'package:newapp/views/home_screen.dart/home_screen.dart';
+import 'package:newapp/views/login_screen/login_screen.dart';
+import 'package:newapp/views/signup_screen/signup_screen.dart';
+
+import '../../firebase/auth/auth.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,21 +19,40 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
-
   //---------------------Navigation to log in page-----------------
   @override
-   void initState() {
-     super.initState();
-     Timer(
-       Duration(seconds: 5),
-       (() => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (
-         (BuildContext context) => foodDelivery()))))
-     );
-   }
+  void initState() {
+    super.initState();
+    Timer(
+        Duration(seconds: 5),
+        (() => Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: ((BuildContext context) =>
+
+                //===========================================
+                //===========================================
+
+                StreamBuilder<User?>(
+                  stream: FirebaseAuth.instance.authStateChanges(),
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(child: CircularProgressIndicator());
+                    } 
+                    else if (snapshot.hasError) {
+                      return Center(child: Text("Something went wrong!"));
+                    }
+                    else if (snapshot.hasData) {
+                      return foodDelivery();
+                    } 
+                    else {
+                      return AuthPage();
+                    }
+                  },
+                )
+                )))));
+  }
 
   //----------------------------------------------------------------
-
 
   @override
   Widget build(BuildContext context) {
@@ -43,12 +67,11 @@ class _SplashScreenState extends State<SplashScreen> {
                   height: 200,
                   width: 200,
                   decoration: BoxDecoration(
-                     //color: Colors.black,
+                      //color: Colors.black,
                       borderRadius: BorderRadius.circular(150),
                       image: DecorationImage(
-                        image: AssetImage("images/delivery.png"),
-                        fit: BoxFit.fill)
-                      ),
+                          image: AssetImage("images/delivery.png"),
+                          fit: BoxFit.fill)),
                 ),
               ),
 

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1036640550111",
+    "project_id": "khabar-bilash-login",
+    "storage_bucket": "khabar-bilash-login.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036640550111:android:93190b693066b177b6fd6a",
+        "android_client_info": {
+          "package_name": "com.example.newapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1036640550111-5f0hthgcm2inga6bgbde468d1do8e71f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAguYJjIrPa87Nh2YvW28lLn8H-AGf0aWM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1036640550111-5f0hthgcm2inga6bgbde468d1do8e71f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

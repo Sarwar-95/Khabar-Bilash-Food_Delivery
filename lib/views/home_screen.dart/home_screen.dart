@@ -1,7 +1,9 @@
 import 'dart:ui';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:newapp/firebase/auth/google_signin.dart';
 import 'package:newapp/views/cuisines_part/pizza/pizza.dart';
 import 'package:newapp/views/cuisines_part/biryani/biryani.dart';
 import 'package:newapp/views/cuisines_part/burgers/burgers.dart';
@@ -23,6 +25,11 @@ class foodDelivery extends StatefulWidget {
 }
 
 class _foodDeliveryState extends State<foodDelivery> {
+//====================================================
+
+  final user = FirebaseAuth.instance.currentUser!;
+
+//====================================================
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,8 +48,15 @@ class _foodDeliveryState extends State<foodDelivery> {
         backgroundColor: Colors.transparent,
         actions: [
           IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.notifications_none),
+            onPressed: () {
+              //=============================
+              //=============================
+              FirebaseServices().googleSignOut();
+              Navigator.pop(context);
+              //=============================
+              //FirebaseAuth.instance.signOut();
+            },
+            icon: Icon(Icons.logout_outlined),
             color: Colors.white,
             iconSize: 30,
           ),

@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:newapp/views/cuisines_part/biryani/undal.dart';
@@ -26,41 +27,45 @@ import 'views/signup_screen/signup_screen.dart';
 import 'views/splash_screen/splash_screen.dart';
 import 'views/home_screen.dart/home_screen.dart';
 
-void main() {
-  runApp(
-    MultiProvider(providers: [
-      //ChangeNotifierProvider(create: (_)=>CounterApp(),),
-      //ChangeNotifierProvider(create: (_)=>cartModel()),
-      //ChangeNotifierProvider(create: (_) => CardItem()),
-       ChangeNotifierProvider(create: (_) => OrderModel()), // Main work
-      ],
-    child: MyApp()) );
+void main() async {
+  // Firebase---
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MultiProvider(providers: [
+    //ChangeNotifierProvider(create: (_)=>CounterApp(),),
+    //ChangeNotifierProvider(create: (_)=>cartModel()),
+    //ChangeNotifierProvider(create: (_) => CardItem()),
+    ChangeNotifierProvider(create: (_) => OrderModel()), // Main work
+  ], child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+   final navigatorKey = GlobalKey<NavigatorState>();
+
+
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+       navigatorKey: navigatorKey,
+      
       debugShowCheckedModeBanner: false,
       home:
-        
+
           //-----------------------
           //foodDelivery(),
           //----------------------
           SplashScreen(),
-           
-          //Counter()
-          //Home(),
-
-          //SignIn()
-          //SignUp()
+      //Counter()
+      //Home(),
+      //SignIn()
+      //SignUp()
 
       // ---Cuisines---
       //Biryani(),
-          //Undal(),
-          //Bustine()
+      //Undal(),
+      //Bustine()
       //Burgers(),
       //Cafe()
       //Chicken()
