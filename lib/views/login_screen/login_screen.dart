@@ -8,21 +8,19 @@ import 'package:newapp/firebase/auth/google_signin.dart';
 import 'package:newapp/views/home_screen.dart/home_screen.dart';
 import 'package:newapp/views/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
-
 import '../signup_screen/signup_screen.dart';
 
 class SignIn extends StatefulWidget {
-  final VoidCallback showSignUpPage;
-  SignIn({super.key, required this.showSignUpPage});
+  SignIn({
+    super.key,
+  });
 
   @override
   State<SignIn> createState() => _SignInState();
 }
 
 class _SignInState extends State<SignIn> {
-//================================================
-//================================================
-
+  //=================================================================
   final _emailController = TextEditingController();
   final _passController = TextEditingController();
 
@@ -32,40 +30,16 @@ class _SignInState extends State<SignIn> {
     _passController.dispose();
   }
 
-//============== Firebase Sign In ================
-
-  // Future<UserCredential> signInWithGoogle() async {
-  //   // Trigger the authentication flow
-  //   final GoogleSignInAccount? googleUser = await GoogleSignIn(
-  //     scopes: [
-  //       'email',
-  //     ],
-  //   ).signIn();
-
-  //   // Obtain the auth details from the request
-  //   final GoogleSignInAuthentication? googleAuth =
-  //       await googleUser?.authentication;
-
-  //   // Create a new credential
-  //   final credential = GoogleAuthProvider.credential(
-  //     accessToken: googleAuth?.accessToken,
-  //     idToken: googleAuth?.idToken,
-  //   );
-
-  //   // Once signed in, return the UserCredential
-  //   return await FirebaseAuth.instance.signInWithCredential(credential);
-  // }
-
-//================================================
-//================================================
-//================================================
+  //=================================================================
 
   final _formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     //---------------------------------------------
+
     final user = FirebaseAuth.instance.currentUser;
+
     //----------------------------------------------
     return Scaffold(
         backgroundColor: Colors.black,
@@ -202,7 +176,9 @@ class _SignInState extends State<SignIn> {
                                 hintText: 'Password',
                               ),
                             ),
+
                             //-----------------------------------------------------------
+
                             SizedBox(
                               height: 25,
                             ),
@@ -222,17 +198,19 @@ class _SignInState extends State<SignIn> {
                                     onChanged: (value) {})
                               ],
                             ),
-                            //-----------------------------(Log In Button)--------------------------
+
                             SizedBox(
                               height: 25,
                             ),
 
-                            //========================
-                            //========================
-                            // if (user == null)
+                            //-----------------------------(Log In Button)--------------------------
+                            //======================================================================
                             ElevatedButton(
                                 onPressed: () {
-                                  //========================================
+                                  //===================================================================
+                                  //|..................... F I R E B A S E ...........................|
+                                  //===================================================================
+
                                   showDialog(
                                       context: context,
                                       barrierDismissible: false,
@@ -241,8 +219,9 @@ class _SignInState extends State<SignIn> {
                                           child: CircularProgressIndicator(),
                                         );
                                       }));
-                                  //========================================
-                                  // Firebase auth
+
+                                  //==================================================================
+
                                   try {
                                     FirebaseAuth.instance
                                         .signInWithEmailAndPassword(
@@ -256,20 +235,16 @@ class _SignInState extends State<SignIn> {
                                       print("Wrong password buddy");
                                     }
                                   }
+
                                   Navigator.pop(context);
-                                  // navigatorKey.currentSate!
-                                  //     .popUntil((reute) => route.isFirst);
 
                                   if (_formkey.currentState!.validate()) {
                                     return print("Log in successfully!!!");
                                   }
 
-                                  // final credential = signInWithGoogle();
-                                  // setState(() {});
-                                  // Navigator.of(context).push(MaterialPageRoute(
-                                  //     builder: (BuildContext context) {
-                                  //   return SignUp();
-                                  // }));
+                                  //==================================================================
+                                  //==================================================================
+                                  //==================================================================
                                 },
                                 style: ElevatedButton.styleFrom(
                                     shape: StadiumBorder(),
@@ -301,21 +276,13 @@ class _SignInState extends State<SignIn> {
                                   ),
 
                                   //--------------------Text Button
-                                  //if (user != null)
                                   TextButton(
                                       onPressed: () {
-                                        // await FirebaseAuth.instance.signOut();
-                                        // setState(() {
-
-                                        // });
-                                        //print("Sign Up Pages");
-                                        print("Calling");
-                                        widget.showSignUpPage;
-                                        // Navigator.of(context).push(
-                                        //     MaterialPageRoute(builder:
-                                        //         (BuildContext context) {
-                                        //   return SignUp();
-                                        // }));
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(builder:
+                                                (BuildContext context) {
+                                          return SignUp();
+                                        }));
                                       },
                                       child: Text(
                                         'Sign up',
@@ -336,8 +303,10 @@ class _SignInState extends State<SignIn> {
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.black),
                                   onPressed: () async {
+                                    //..........................................
                                     await FirebaseServices().signInWithGoogle();
-                                    print("Sarwar");
+                                    //..........................................
+
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(

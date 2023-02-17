@@ -45,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       return foodDelivery();
                     } 
                     else {
-                      return AuthPage();
+                      return SignIn();
                     }
                   },
                 )

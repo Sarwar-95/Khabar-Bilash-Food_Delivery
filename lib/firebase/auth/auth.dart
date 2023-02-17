@@ -11,25 +11,24 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-
-  // initially, show the login page 
-  bool ShowLogInPage = true;
+  // initially, show the login page
+  //bool ShowLogInPage = true;
 
   void toggleScreens() {
     setState(() {
-      ShowLogInPage = !ShowLogInPage;
+      //ShowLogInPage = !ShowLogInPage;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    if (ShowLogInPage) {
-      print("Sign In**");
-      return SignIn(showSignUpPage: toggleScreens);
-      //return SignUp(showLoginPage: toggleScreens);
-    } else {
-      print("Sign Up");
-      return SignUp(showLoginPage: toggleScreens);
-    }
+    // if (ShowLogInPage) {
+    //   print("Sign In**");
+    //   return SignIn(showSignUpPage: toggleScreens);
+    //   //return SignUp(showLoginPage: toggleScreens);
+    // } else {
+    return Container();
+    // return SignUp(showLoginPage: toggleScreens);
   }
 }
+//}

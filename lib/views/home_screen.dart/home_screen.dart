@@ -49,12 +49,18 @@ class _foodDeliveryState extends State<foodDelivery> {
         actions: [
           IconButton(
             onPressed: () {
-              //=============================
-              //=============================
-              FirebaseServices().googleSignOut();
-              Navigator.pop(context);
-              //=============================
-              //FirebaseAuth.instance.signOut();
+
+          //===================================================================
+          //|..................... F I R E B A S E ...........................|
+          //===================================================================
+              
+              // FirebaseServices().googleSignOut();
+              // Navigator.pop(context);
+              
+          //===================================================================
+              FirebaseAuth.instance.signOut();
+          //===================================================================
+          
             },
             icon: Icon(Icons.logout_outlined),
             color: Colors.white,

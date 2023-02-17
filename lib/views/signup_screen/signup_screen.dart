@@ -4,12 +4,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:newapp/views/home_screen.dart/home_screen.dart';
 import '../login_screen/login_screen.dart';
 
 class SignUp extends StatefulWidget {
-  final VoidCallback showLoginPage;
-
-  SignUp({super.key, required this.showLoginPage});
+  SignUp({
+    super.key,
+  });
 
   @override
   State<SignUp> createState() => _SignUpState();
@@ -17,7 +18,9 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final formKey = GlobalKey<FormState>();
+
   //===================================================================
+
   final _userNameController = TextEditingController();
 
   final _userEmailController = TextEditingController();
@@ -32,19 +35,30 @@ class _SignUpState extends State<SignUp> {
     _userPasswordController.dispose();
   }
 
+  //===================================================================
+  //|..................... F I R E B A S E ...........................|
+  //===================================================================
+
   Future signUp() async {
+    // final isValid = formKey.currentState!.validate();
+    // if (isValid) return;
 
-    final isValid = formKey.currentState!.validate();
-    if (isValid) return;
-
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: _userEmailController.text.trim(),
-        password: _userPasswordController.text.trim());
+    await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(
+            email: _userEmailController.text.trim(),
+            password: _userPasswordController.text.trim())
+        .then((value) {
+      print("Create New Account");
+      Navigator.push(
+          context, MaterialPageRoute(builder: ((context) => foodDelivery())));
+    });
 
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text("Successfully Registered")));
   }
 
+  //=================================================================
+  //=================================================================
   //=================================================================
 
   @override
@@ -61,7 +75,6 @@ class _SignUpState extends State<SignUp> {
               Container(
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * .2,
-                //height: 120,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(50),
@@ -96,9 +109,7 @@ class _SignUpState extends State<SignUp> {
 
               //--------------------Container(2)
               Container(
-                //height: 472,
                 width: double.infinity,
-                // height: double.infinity,
                 height: MediaQuery.of(context).size.height * .8,
                 decoration: BoxDecoration(
                     color: Colors.white,
@@ -176,11 +187,6 @@ class _SignUpState extends State<SignUp> {
                         //--------------------TextField(3)
                         TextFormField(
                           controller: _userPhoneController,
-                          // autovalidateMode: AutovalidateMode.onUserInteraction,
-                          // validator: (value) =>
-                          //     value != null && value.length < 6
-                          //         ? "Enter a min. 6 characters"
-                          //         : null,
                           style: TextStyle(
                               color: Colors.black, fontWeight: FontWeight.w700),
                           decoration: InputDecoration(
@@ -205,16 +211,18 @@ class _SignUpState extends State<SignUp> {
                         SizedBox(
                           height: 25,
                         ),
+
                         //--------------------TextField(4)
                         TextFormField(
-                          //controller: _passController,
                           controller: _userPasswordController,
+
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           validator: (value) =>
                               value != null && value.length < 6
                                   ? "Enter a min. 6 characters"
                                   : null,
                           obscureText: true, // for password
+
                           style: TextStyle(
                               color: Colors.black, fontWeight: FontWeight.w800),
                           decoration: InputDecoration(
@@ -255,55 +263,16 @@ class _SignUpState extends State<SignUp> {
                                 onChanged: (value) {})
                           ],
                         ),
-                        //-----------------------------(Log In Button)--------------------------
-
                         SizedBox(
                           height: 10,
                         ),
 
+                        //-----------------------------(Log In Button)--------------------------
+                        //======================================================================
                         ElevatedButton(
                             onPressed: () {
+                              //--------Firebase
                               signUp();
-                              //isLogin ? SignIn() : SignUp();
-
-                              //print("Successfully registered");
-
-                              // signUptoFirebase();
-                              // var userName = _userNameController.text.trim();
-                              // var userEmail = _userEmailController.text.trim();
-                              // var userPhone = _userPhoneController.text.trim();
-                              // var userPassword =
-                              //     _userPasswordController.text.trim();
-
-                              // showDialog(
-                              //     context: context,
-                              //     barrierDismissible: false,
-                              //     builder: ((context) {
-                              //       return Center(
-                              //         child: CircularProgressIndicator(),
-                              //       );
-                              //     }));
-
-                              // try {
-                              //   FirebaseAuth.instance
-                              //       .createUserWithEmailAndPassword(
-                              //           email:_userEmailController.text.trim(),
-                              //           password:_userPasswordController.text.trim());
-                              // } on FirebaseAuthException catch (e) {
-                              //   print(e);
-                              // }
-
-                              // FirebaseFirestore.instance
-                              //     .collection("users")
-                              //     .doc()
-                              //     .set(
-                              //   {
-                              //     'userName': userName,
-                              //     'userPhone': userPhone,
-                              //     'userEmail': userEmail,
-                              //   },
-                              // );
-                              print("Data Stored to firebase");
                             },
                             style: ElevatedButton.styleFrom(
                                 shape: StadiumBorder(),
@@ -333,9 +302,7 @@ class _SignUpState extends State<SignUp> {
                               //--------------------Text Button
                               TextButton(
                                   onPressed: () {
-                                    widget.showLoginPage;
-                                    print("Hello! widget.showLoginPage");
-                                    //Navigator.of(context).pop();
+                                    Navigator.of(context).pop();
                                   },
                                   child: Text(
                                     'Login',
