@@ -5,8 +5,11 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:newapp/firebase/auth/google_signin.dart';
-import 'package:newapp/views/home_screen.dart/home_screen.dart';
+import 'package:newapp/views/forget_password/forget_password.dart';
+import 'package:newapp/views/home_screen/home_screen.dart';
 import 'package:newapp/views/splash_screen/splash_screen.dart';
+import 'package:newapp/widgets_common/divider.dart';
+import 'package:newapp/widgets_common/text_rich.dart';
 import 'package:provider/provider.dart';
 import '../signup_screen/signup_screen.dart';
 
@@ -20,6 +23,7 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  bool _showPassword = false;
   //=================================================================
   final _emailController = TextEditingController();
   final _passController = TextEditingController();
@@ -55,23 +59,16 @@ class _SignInState extends State<SignIn> {
                   child: ListView(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(right: 400),
-                        child: IconButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          icon: Icon(Icons.arrow_back),
-                          color: Colors.white,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 30),
-                        child: Text(
-                          'Login',
-                          style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700),
+                        padding: const EdgeInsets.only(top: 35, left: 30),
+                        child: Center(
+                          child: Text(
+                            'Login',
+                            style: TextStyle(
+                                fontSize: 35,
+                                color: Colors.white,
+                                fontFamily: 'DeliusSwashCaps',
+                                fontWeight: FontWeight.w700),
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -79,12 +76,15 @@ class _SignInState extends State<SignIn> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 30),
-                        child: Text(
-                          'Welcome Back',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600),
+                        child: Center(
+                          child: Text(
+                            'Welcome Back',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'DeliusSwashCaps',
+                                fontSize: 35,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
                       )
                     ],
@@ -152,7 +152,7 @@ class _SignInState extends State<SignIn> {
                                 return null;
                               },
                               controller: _passController,
-                              obscureText: true, // for password
+                              obscureText: !this._showPassword, // for password
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w800),
@@ -173,6 +173,19 @@ class _SignInState extends State<SignIn> {
                                     color: Colors.black,
                                   ),
                                 ),
+
+                                suffixIcon: IconButton(
+                                  onPressed: (() {
+                                    setState(() {
+                                      this._showPassword = !this._showPassword;
+                                    });
+                                  }),
+                                  icon: Icon(Icons.remove_red_eye),
+                                  color: this._showPassword
+                                      ? Colors.blue
+                                      : Colors.grey,
+                                ),
+
                                 hintText: 'Password',
                               ),
                             ),
@@ -180,66 +193,72 @@ class _SignInState extends State<SignIn> {
                             //-----------------------------------------------------------
 
                             SizedBox(
-                              height: 25,
+                              height: 20,
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Remind me next time',
+
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (BuildContext context) {
+                                    return ForgetPassword();
+                                  }));
+                                },
+                                child: Text(
+                                  "Forget Password?",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18),
+                                      fontSize: 18,
+                                      color: Colors.black),
                                 ),
-                                Switch(
-                                    activeColor: Colors.white,
-                                    activeTrackColor: Colors.black,
-                                    value: true,
-                                    onChanged: (value) {})
-                              ],
+                              ),
                             ),
-
                             SizedBox(
-                              height: 25,
+                              height: 20,
                             ),
-
+                            TextRich(),
+                            SizedBox(
+                              height: 20,
+                            ),
                             //-----------------------------(Log In Button)--------------------------
                             //======================================================================
                             ElevatedButton(
                                 onPressed: () {
                                   //===================================================================
-                                  //|..................... F I R E B A S E ...........................|
-                                  //===================================================================
-
-                                  showDialog(
-                                      context: context,
-                                      barrierDismissible: false,
-                                      builder: ((context) {
-                                        return Center(
-                                          child: CircularProgressIndicator(),
-                                        );
-                                      }));
-
-                                  //==================================================================
+                                  //|..................... F I R E B A S E ............................|
+                                  //|===================================================================
+                                  //|==================================================================|
 
                                   try {
                                     FirebaseAuth.instance
                                         .signInWithEmailAndPassword(
                                             email: _emailController.text.trim(),
                                             password:
-                                                _passController.text.trim());
-                                  } on FirebaseAuthException catch (e) {
+                                                _passController.text.trim()).then((value) => foodDelivery());
+                                  // Navigator.push(
+                                  //     context,
+                                  //     MaterialPageRoute(
+                                  //         builder: (context) => foodDelivery()));
+                                  }
+                                   
+                                  on FirebaseAuthException catch (e) {
+
                                     if (e.code == 'user-not-found') {
-                                      print("No user found for that email");
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(SnackBar(
+                                              content: Text(
+                                                  "No user found for that email")));
                                     } else if (e.code == 'wrong-password') {
-                                      print("Wrong password buddy");
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(SnackBar(
+                                              content: Text(
+                                                  "Wrong password buddy")));
                                     }
                                   }
-
-                                  Navigator.pop(context);
-
+                                 
                                   if (_formkey.currentState!.validate()) {
-                                    return print("Log in successfully!!!");
+                                    print("Log in successfully!!!");
                                   }
 
                                   //==================================================================
@@ -295,6 +314,13 @@ class _SignInState extends State<SignIn> {
                                 ],
                               ),
                             ),
+
+                            //----------------
+                            DividerWidget(),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            //----------------
 
                             Padding(
                               padding:

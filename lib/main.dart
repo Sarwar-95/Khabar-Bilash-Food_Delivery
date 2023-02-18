@@ -19,13 +19,14 @@ import 'package:newapp/cart/order_model.dart';
 import 'package:newapp/Extra/practice.dart';
 import 'package:newapp/provider/app_design.dart';
 import 'package:newapp/provider/counter_provider.dart';
+import 'package:newapp/views/forget_password/forget_password.dart';
 import 'package:provider/provider.dart';
 import 'views/cuisines_part/biryani/bustine.dart';
 import 'Extra/practice_3.dart';
 import 'views/login_screen/login_screen.dart';
 import 'views/signup_screen/signup_screen.dart';
 import 'views/splash_screen/splash_screen.dart';
-import 'views/home_screen.dart/home_screen.dart';
+import 'views/home_screen/home_screen.dart';
 
 void main() async {
   // Firebase---
@@ -48,8 +49,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-       navigatorKey: navigatorKey,
-      
       debugShowCheckedModeBanner: false,
       home:
 
@@ -57,6 +56,7 @@ class MyApp extends StatelessWidget {
           //foodDelivery(),
           //----------------------
           SplashScreen(),
+          //ForgetPassword()
       //Counter()
       //Home(),
       //SignIn()
@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
 
       // ---Cuisines---
       //Biryani(),
-      //Undal(),
+          //Undal(),
       //Bustine()
       //Burgers(),
       //Cafe()

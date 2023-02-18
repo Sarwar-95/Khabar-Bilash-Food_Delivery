@@ -16,6 +16,7 @@ import 'package:newapp/views/cuisines_part/snack/snack.dart';
 import 'package:newapp/views/cuisines_part/soups/soups.dart';
 import 'package:newapp/const/colors.dart';
 import 'package:newapp/cart/order_page.dart';
+import 'package:newapp/views/login_screen/login_screen.dart';
 
 class foodDelivery extends StatefulWidget {
   const foodDelivery({super.key});
@@ -26,20 +27,16 @@ class foodDelivery extends StatefulWidget {
 
 class _foodDeliveryState extends State<foodDelivery> {
 //====================================================
-
-  final user = FirebaseAuth.instance.currentUser!;
-
-//====================================================
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: BackgroundColor,
-      //backgroundColor: Colors.deepPurpleAccent,
+      
       //==============(APP BAR)===================
       appBar: AppBar(
         elevation: 0,
         title: Text(
-          "Food Delivey",
+          "Khabar-Bilash",
           style: TextStyle(
             color: Colors.white,
             fontSize: 25,
@@ -47,26 +44,15 @@ class _foodDeliveryState extends State<foodDelivery> {
         ),
         backgroundColor: Colors.transparent,
         actions: [
-          IconButton(
-            onPressed: () {
-
-          //===================================================================
-          //|..................... F I R E B A S E ...........................|
-          //===================================================================
-              
-              // FirebaseServices().googleSignOut();
-              // Navigator.pop(context);
-              
-          //===================================================================
-              FirebaseAuth.instance.signOut();
-          //===================================================================
-          
-            },
-            icon: Icon(Icons.logout_outlined),
+            IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.search),
             color: Colors.white,
             iconSize: 30,
           ),
-          IconButton(
+          
+          //****************************************************/
+            IconButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return OrderPage();
@@ -76,9 +62,29 @@ class _foodDeliveryState extends State<foodDelivery> {
             color: Colors.white,
             iconSize: 30,
           ),
+
+          //****************************************************/
+
           IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.search),
+            onPressed: () {
+              //===================================================================
+              //|..................... F I R E B A S E ...........................|
+              //===================================================================
+
+               FirebaseServices().googleSignOut();
+               
+              //===================================================================
+
+              FirebaseAuth.instance.signOut();
+
+              Navigator.pop(context);
+              Navigator.push(context, 
+                   MaterialPageRoute(builder: (context)=>SignIn()));
+
+              //===================================================================
+            },
+
+            icon: Icon(Icons.logout_outlined),
             color: Colors.white,
             iconSize: 30,
           ),
@@ -173,7 +179,9 @@ class Body extends StatelessWidget {
                 ],
               ),
             ),
+            
             //-----------------------------------
+            
             SizedBox(
               height: 10,
             ),
@@ -191,7 +199,9 @@ class Body extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
+            
             //-----------------------------------
+            
             Container(
               height: 280,
               child: ListView(
@@ -801,4 +811,6 @@ class Card extends StatelessWidget {
   }
 }
 
+//=======================End==========================
+//=======================End==========================
 //=======================End==========================

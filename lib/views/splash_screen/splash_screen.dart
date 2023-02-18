@@ -5,11 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:newapp/const/colors.dart';
-import 'package:newapp/views/home_screen.dart/home_screen.dart';
+import 'package:newapp/views/home_screen/home_screen.dart';
 import 'package:newapp/views/login_screen/login_screen.dart';
 import 'package:newapp/views/signup_screen/signup_screen.dart';
 
-import '../../firebase/auth/auth.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

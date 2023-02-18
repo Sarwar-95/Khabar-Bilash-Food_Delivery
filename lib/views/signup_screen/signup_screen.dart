@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:newapp/views/home_screen.dart/home_screen.dart';
+import 'package:newapp/views/home_screen/home_screen.dart';
 import '../login_screen/login_screen.dart';
 
 class SignUp extends StatefulWidget {
@@ -17,6 +17,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  bool _showPassword = false;
   final formKey = GlobalKey<FormState>();
 
   //===================================================================
@@ -40,9 +41,6 @@ class _SignUpState extends State<SignUp> {
   //===================================================================
 
   Future signUp() async {
-    // final isValid = formKey.currentState!.validate();
-    // if (isValid) return;
-
     await FirebaseAuth.instance
         .createUserWithEmailAndPassword(
             email: _userEmailController.text.trim(),
@@ -81,29 +79,14 @@ class _SignUpState extends State<SignUp> {
                       bottomRight: Radius.circular(50)),
                   color: Colors.black,
                 ),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: Icon(Icons.arrow_back),
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 90,
-                    ),
-                    Text(
-                      'Signup',
-                      style: TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700),
-                    ),
-                  ],
+                child: Center(
+                  child: Text(
+                    'Sign Up',
+                    style: TextStyle(
+                       fontSize: 35,
+                       color: Colors.white,
+                       fontFamily: 'DeliusSwashCaps',
+                       fontWeight: FontWeight.w700)),
                 ),
               ),
 
@@ -117,7 +100,7 @@ class _SignUpState extends State<SignUp> {
                         topLeft: Radius.circular(50),
                         topRight: Radius.circular(50))),
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 25, right: 25, top: 25),
+                  padding: const EdgeInsets.only(left: 25, right: 25, top: 35),
                   child: Form(
                     key: formKey,
                     child: ListView(
@@ -221,7 +204,7 @@ class _SignUpState extends State<SignUp> {
                               value != null && value.length < 6
                                   ? "Enter a min. 6 characters"
                                   : null,
-                          obscureText: true, // for password
+                          obscureText: !this._showPassword, // for password
 
                           style: TextStyle(
                               color: Colors.black, fontWeight: FontWeight.w800),
@@ -243,31 +226,26 @@ class _SignUpState extends State<SignUp> {
                               ),
                             ),
                             hintText: 'Password',
+                            suffixIcon: IconButton(
+                              onPressed: (() {
+                                setState(() {
+                                  this._showPassword = !this._showPassword;
+                                    });
+                                  }),
+                                  icon: Icon(Icons.remove_red_eye),
+                                  color: this._showPassword
+                                      ? Colors.blue
+                                      : Colors.grey,
+                                ),
                           ),
                         ),
 
-                        //-----------------------------------------------------------
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Remind me next time',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 18),
-                            ),
-                            Switch(
-                                activeColor: Colors.white,
-                                activeTrackColor: Colors.black,
-                                value: true,
-                                onChanged: (value) {})
-                          ],
-                        ),
                         SizedBox(
-                          height: 10,
+                          height: 30,
                         ),
 
                         //-----------------------------(Log In Button)--------------------------
+                        //======================================================================
                         //======================================================================
                         ElevatedButton(
                             onPressed: () {
@@ -286,6 +264,11 @@ class _SignUpState extends State<SignUp> {
                             )),
 
                         //-----------------------------------------------------------------------
+                        
+                        SizedBox(
+                          height: 25,
+                        ),
+
                         Padding(
                           padding: const EdgeInsets.only(left: 45),
                           //--------------------Row
