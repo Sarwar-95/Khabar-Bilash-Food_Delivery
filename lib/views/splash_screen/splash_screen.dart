@@ -83,7 +83,8 @@ class _SplashScreenState extends State<SplashScreen> {
                 style: TextStyle(
                     fontSize: 25,
                     letterSpacing: 7,
-                    fontWeight: FontWeight.w800,
+                    fontFamily: 'DeliusSwashCaps',
+                    fontWeight: FontWeight.w700,
                     color: Colors.white),
               ),
 

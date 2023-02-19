@@ -119,6 +119,7 @@ class _SignInState extends State<SignIn> {
                               controller: _emailController,
                               style: TextStyle(
                                   color: Colors.black,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.w700),
                               decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
@@ -155,6 +156,7 @@ class _SignInState extends State<SignIn> {
                               obscureText: !this._showPassword, // for password
                               style: TextStyle(
                                   color: Colors.black,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.w800),
                               decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
@@ -206,7 +208,7 @@ class _SignInState extends State<SignIn> {
                                   }));
                                 },
                                 child: Text(
-                                  "Forget Password?",
+                                  "Forgot Password?",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18,
@@ -235,15 +237,16 @@ class _SignInState extends State<SignIn> {
                                         .signInWithEmailAndPassword(
                                             email: _emailController.text.trim(),
                                             password:
-                                                _passController.text.trim()).then((value) => foodDelivery());
-                                  // Navigator.push(
-                                  //     context,
-                                  //     MaterialPageRoute(
-                                  //         builder: (context) => foodDelivery()));
-                                  }
-                                   
-                                  on FirebaseAuthException catch (e) {
-
+                                                _passController.text.trim())
+                                        .then((value) {
+                                       Navigator.push(
+                                         context,
+                                         MaterialPageRoute(
+                                             builder: (context) =>
+                                                 foodDelivery()));
+                                    });
+                                    
+                                  } on FirebaseAuthException catch (e) {
                                     if (e.code == 'user-not-found') {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(SnackBar(
@@ -256,7 +259,7 @@ class _SignInState extends State<SignIn> {
                                                   "Wrong password buddy")));
                                     }
                                   }
-                                 
+
                                   if (_formkey.currentState!.validate()) {
                                     print("Log in successfully!!!");
                                   }
@@ -345,7 +348,10 @@ class _SignInState extends State<SignIn> {
                                         FontAwesomeIcons.google,
                                         color: Color.fromARGB(255, 213, 78, 68),
                                       ),
-                                      Text("  Sign Up with Google")
+                                      Text("  Sign Up with Google",
+                                      style: TextStyle(
+                                        fontSize: 16
+                                      ),)
                                     ],
                                   )),
                             )

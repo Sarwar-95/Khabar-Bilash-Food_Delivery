@@ -109,7 +109,9 @@ class _SignUpState extends State<SignUp> {
                         TextFormField(
                           controller: _userNameController,
                           style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.w700),
+                              color: Colors.black, 
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700),
                           decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.black),
@@ -143,7 +145,9 @@ class _SignUpState extends State<SignUp> {
                                   ? "Enter a valid email"
                                   : null,
                           style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.w700),
+                              color: Colors.black, 
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700),
                           decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.black),
@@ -171,7 +175,9 @@ class _SignUpState extends State<SignUp> {
                         TextFormField(
                           controller: _userPhoneController,
                           style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.w700),
+                              color: Colors.black, 
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700),
                           decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.black),
@@ -207,7 +213,9 @@ class _SignUpState extends State<SignUp> {
                           obscureText: !this._showPassword, // for password
 
                           style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.w800),
+                              color: Colors.black, 
+                              fontSize: 20,
+                              fontWeight: FontWeight.w800),
                           decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.black),

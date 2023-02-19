@@ -40,18 +40,10 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                           color: Colors.white,
                         ),
                       ),
-                      SizedBox(height: 25,),
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          'Forget Password',
-                          style: TextStyle(
-                              fontSize: 35,
-                              color: Colors.white,
-                              fontFamily: 'DeliusSwashCaps',
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ),
+
+                     Icon(Icons.lock_reset_outlined,
+                            size: 150, 
+                            color: Colors.white,),
                       SizedBox(
                         height: 5,
                       ),
@@ -69,17 +61,20 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                           topRight: Radius.circular(50))),
                   child: Padding(
                       padding:
-                          const EdgeInsets.only(left: 25, right: 25, top: 40),
-                      // Form key
+                          const EdgeInsets.only(left: 25, right: 25, top: 25),
                       child: Form(
                         child: ListView(
                           scrollDirection: Axis.vertical,
                           children: [
+                            SizedBox(
+                              height: 25,
+                            ),
                             //--------------------TextField(1)
                             TextFormField(
                               controller: _emailController,
                               style: TextStyle(
                                   color: Colors.black,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.w700),
                               decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
@@ -129,7 +124,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                                     shadowColor:
                                         Color.fromARGB(255, 77, 13, 225)),
                                 child: Text(
-                                  'Forget Password',
+                                  'Forgot Password',
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.w700),

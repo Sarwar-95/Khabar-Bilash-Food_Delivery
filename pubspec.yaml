@@ -49,6 +49,7 @@ dependencies:
   firebase_database: ^10.0.10
   firebase_storage: ^11.0.11
   email_validator: ^2.1.17  
+  
 
 
 
