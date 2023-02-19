@@ -20,6 +20,7 @@ import 'package:newapp/Extra/practice.dart';
 import 'package:newapp/provider/app_design.dart';
 import 'package:newapp/provider/counter_provider.dart';
 import 'package:newapp/views/forget_password/forget_password.dart';
+import 'package:newapp/views/onboarding_screen/onboarding_screen.dart';
 import 'package:provider/provider.dart';
 import 'views/cuisines_part/biryani/bustine.dart';
 import 'Extra/practice_3.dart';
@@ -55,7 +56,8 @@ class MyApp extends StatelessWidget {
           //-----------------------
           //foodDelivery(),
           //----------------------
-          SplashScreen(),
+          //SplashScreen(),
+          OnBoardingScreen()
           //ForgetPassword()
       //Counter()
       //Home(),

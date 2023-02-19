@@ -57,11 +57,12 @@ class CounterState extends State<Counter> {
       appBar: AppBar(
         title: Text("Flutter Notification Badges"),
         actions: [
-          Badge(
-            position: BadgePosition.topEnd(top: 0,end: 3),
-            badgeContent: Text("$counter1"),
-            child: IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart,size: 35,),),
-          )
+          // Error ....after flutter and dart update
+          // Badge(
+          //   position: BadgePosition.topEnd(top: 0,end: 3),
+          //   badgeContent: Text("$counter1"),
+          //   child: IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart,size: 35,),),
+          // )
         ],
       ),
       body: Center(

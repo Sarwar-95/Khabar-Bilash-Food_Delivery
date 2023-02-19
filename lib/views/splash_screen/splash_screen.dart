@@ -7,6 +7,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:newapp/const/colors.dart';
 import 'package:newapp/views/home_screen/home_screen.dart';
 import 'package:newapp/views/login_screen/login_screen.dart';
+import 'package:newapp/views/onboarding_screen/onboarding_screen.dart';
 import 'package:newapp/views/signup_screen/signup_screen.dart';
 
 
@@ -26,7 +27,6 @@ class _SplashScreenState extends State<SplashScreen> {
         Duration(seconds: 5),
         (() => Navigator.of(context).pushReplacement(MaterialPageRoute(
             builder: ((BuildContext context) =>
-
                 //===========================================
                 //===========================================
 
