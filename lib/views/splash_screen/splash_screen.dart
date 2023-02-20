@@ -24,93 +24,73 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 5),
+        Duration(seconds: 10),
         (() => Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: ((BuildContext context) =>
-                //===========================================
-                //===========================================
-
-                StreamBuilder<User?>(
-                  stream: FirebaseAuth.instance.authStateChanges(),
-                  builder: (BuildContext context, AsyncSnapshot snapshot) {
-
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Center(child: CircularProgressIndicator());
-                    } 
-                    else if (snapshot.hasError) {
-                      return Center(child: Text("Something went wrong!"));
-                    }
-                    else if (snapshot.hasData) {
-                      return foodDelivery();
-                    } 
-                    else {
-                      return SignIn();
-                    }
-                  },
-                )
-                )))));
+            builder: ((BuildContext context) =>OnBoardingScreen()
+                ))
+                )));
   }
-
   //----------------------------------------------------------------
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: BackgroundColor,
-        body: Center(
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(top: 150),
-                child: Container(
-                  height: 200,
-                  width: 200,
-                  decoration: BoxDecoration(
-                      //color: Colors.black,
-                      borderRadius: BorderRadius.circular(150),
-                      image: DecorationImage(
-                          image: AssetImage("images/delivery.png"),
-                          fit: BoxFit.fill)),
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 150),
+                  child: Container(
+                    height: 200,
+                    width: 200,
+                    decoration: BoxDecoration(
+                        //color: Colors.black,
+                        borderRadius: BorderRadius.circular(150),
+                        image: DecorationImage(
+                            image: AssetImage("images/delivery.png"),
+                            fit: BoxFit.fill)),
+                  ),
                 ),
-              ),
-
-              SizedBox(
-                height: 20,
-              ),
-
-              Text(
-                "KHABAR-BILASH",
-                style: TextStyle(
-                    fontSize: 25,
-                    letterSpacing: 7,
-                    fontFamily: 'DeliusSwashCaps',
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white),
-              ),
-
-              SizedBox(
-                height: 35,
-              ),
-
-              //------------------------------
-              CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation(Colors.white),
-              ),
-              //------------------------------
-
-              SizedBox(
-                height: 25,
-              ),
-              Padding(
-                  padding: EdgeInsets.only(top: 200),
-                  child: Text(
-                    "@copyright2023",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 4,
-                        color: Colors.white),
-                  ))
-            ],
+          
+                SizedBox(
+                  height: 20,
+                ),
+          
+                Text(
+                  "KHABAR-BILASH",
+                  style: TextStyle(
+                      fontSize: 25,
+                      letterSpacing: 7,
+                      fontFamily: 'DeliusSwashCaps',
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white),
+                ),
+          
+                SizedBox(
+                  height: 35,
+                ),
+          
+                //------------------------------
+                CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation(Colors.white),
+                ),
+                //------------------------------
+          
+                SizedBox(
+                  height: 25,
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: 200),
+                    child: Text(
+                      "@copyright2023",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 4,
+                          color: Colors.white),
+                    ))
+              ],
+            ),
           ),
         ));
   }
