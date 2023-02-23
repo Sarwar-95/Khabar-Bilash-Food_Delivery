@@ -39,7 +39,7 @@ class _foodDeliveryState extends State<foodDelivery> {
           "Khabar-Bilash",
           style: TextStyle(
             color: Colors.white,
-            fontSize: 25,
+            fontSize: 20,
           ),
         ),
         backgroundColor: Colors.transparent,
@@ -48,7 +48,7 @@ class _foodDeliveryState extends State<foodDelivery> {
             onPressed: () {},
             icon: Icon(Icons.search),
             color: Colors.white,
-            iconSize: 30,
+            iconSize: 22,
           ),
           
           //****************************************************/
@@ -58,9 +58,11 @@ class _foodDeliveryState extends State<foodDelivery> {
                 return OrderPage();
               }));
             },
+
+
             icon: Icon(Icons.card_giftcard),
             color: Colors.white,
-            iconSize: 30,
+            iconSize: 22,
           ),
 
           //****************************************************/
@@ -86,7 +88,7 @@ class _foodDeliveryState extends State<foodDelivery> {
 
             icon: Icon(Icons.logout_outlined),
             color: Colors.white,
-            iconSize: 30,
+            iconSize: 22,
           ),
         ],
       ),
@@ -110,7 +112,7 @@ class Body extends StatelessWidget {
           children: [
             //========================================
             Container(
-              height: 39,
+              height: 35,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
@@ -190,7 +192,7 @@ class Body extends StatelessWidget {
               child: Text(
                 "Cuisines",
                 style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
@@ -547,7 +549,7 @@ class Body extends StatelessWidget {
 
             //====================================================
             Padding(
-              padding: const EdgeInsets.only(right: 167),
+              padding: const EdgeInsets.only(right: 140),
               child: Text(
                 "Your daily deals",
                 style: TextStyle(

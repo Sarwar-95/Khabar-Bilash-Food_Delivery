@@ -18,7 +18,7 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   bool _showPassword = false;
-  final formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
 
   //===================================================================
 
@@ -80,13 +80,12 @@ class _SignUpState extends State<SignUp> {
                   color: Colors.black,
                 ),
                 child: Center(
-                  child: Text(
-                    'Sign Up',
-                    style: TextStyle(
-                       fontSize: 35,
-                       color: Colors.white,
-                       fontFamily: 'DeliusSwashCaps',
-                       fontWeight: FontWeight.w700)),
+                  child: Text('Create Account',
+                      style: TextStyle(
+                          fontSize: 35,
+                          color: Colors.white,
+                          fontFamily: 'DeliusSwashCaps',
+                          fontWeight: FontWeight.w700)),
                 ),
               ),
 
@@ -102,14 +101,22 @@ class _SignUpState extends State<SignUp> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 25, right: 25, top: 35),
                   child: Form(
-                    key: formKey,
+                    key: _formKey,
                     child: ListView(
                       children: [
                         //--------------------TextField(1)
                         TextFormField(
                           controller: _userNameController,
+
+                          //--- Name Validation ---
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'user Name cannot empty';
+                            }
+                            return null;
+                          },
                           style: TextStyle(
-                              color: Colors.black, 
+                              color: Colors.black,
                               fontSize: 20,
                               fontWeight: FontWeight.w700),
                           decoration: InputDecoration(
@@ -139,13 +146,21 @@ class _SignUpState extends State<SignUp> {
                         //--------------------TextField(2)
                         TextFormField(
                           controller: _userEmailController,
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          validator: (email) =>
-                              email != null && !EmailValidator.validate(email)
-                                  ? "Enter a valid email"
-                                  : null,
+
+                          //--- Email R E G E X ---
+                          validator: (value) {
+                            RegExp regex =
+                                RegExp(r"^[a-z0-9+_.-]+@[a-z.-]+.[a-z]");
+                            if (value!.isEmpty) {
+                              return 'Please enter an email address';
+                            }
+                            if (!regex.hasMatch(value)) {
+                              return 'Please enter a valid Email';
+                            }
+                            return null;
+                          },
                           style: TextStyle(
-                              color: Colors.black, 
+                              color: Colors.black,
                               fontSize: 20,
                               fontWeight: FontWeight.w700),
                           decoration: InputDecoration(
@@ -174,8 +189,20 @@ class _SignUpState extends State<SignUp> {
                         //--------------------TextField(3)
                         TextFormField(
                           controller: _userPhoneController,
+
+                          // ---Mobile Phone R E G E X ---
+                          validator: (value) {
+                              if (value!.isEmpty) {
+                              return 'Mobile can\'t be empty';
+                              } else if (value!.isNotEmpty) {
+                              bool mobileValid =
+                                  RegExp(r'^(?:\+?88|0088)?01[13-9]\d{8}$').hasMatch(value!);
+                              return mobileValid ? null : "Invalid mobile";
+                             }
+                          },
+
                           style: TextStyle(
-                              color: Colors.black, 
+                              color: Colors.black,
                               fontSize: 20,
                               fontWeight: FontWeight.w700),
                           decoration: InputDecoration(
@@ -205,15 +232,23 @@ class _SignUpState extends State<SignUp> {
                         TextFormField(
                           controller: _userPasswordController,
 
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          validator: (value) =>
-                              value != null && value.length < 6
-                                  ? "Enter a min. 6 characters"
-                                  : null,
+                          //--- Password Regex ---
+                          validator: (value) {
+                            RegExp regex = RegExp(
+                                r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+                            if (value!.isEmpty) {
+                              return 'Please Enter password';
+                            }
+                            if (!regex.hasMatch(value)) {
+                              return 'Password must contain at least eight characters including : \n\t\t• digit \n\t\t• uppercase-lowercase letter and \n\t\t• special characters (!@#\$&*~)';
+                            }
+                            return null;
+                          },
+
                           obscureText: !this._showPassword, // for password
 
                           style: TextStyle(
-                              color: Colors.black, 
+                              color: Colors.black,
                               fontSize: 20,
                               fontWeight: FontWeight.w800),
                           decoration: InputDecoration(
@@ -238,13 +273,13 @@ class _SignUpState extends State<SignUp> {
                               onPressed: (() {
                                 setState(() {
                                   this._showPassword = !this._showPassword;
-                                    });
-                                  }),
-                                  icon: Icon(Icons.remove_red_eye),
-                                  color: this._showPassword
-                                      ? Colors.blue
-                                      : Colors.grey,
-                                ),
+                                });
+                              }),
+                              icon: Icon(Icons.remove_red_eye),
+                              color: this._showPassword
+                                  ? Colors.blue
+                                  : Colors.grey,
+                            ),
                           ),
                         ),
 
@@ -255,10 +290,15 @@ class _SignUpState extends State<SignUp> {
                         //-----------------------------(Log In Button)--------------------------
                         //======================================================================
                         //======================================================================
+                        
                         ElevatedButton(
                             onPressed: () {
+                              print(" P R I M A R Y");
+                              if (_formKey.currentState!.validate()) {
+                                print(" S U C C E S S");
+                                signUp();
+                              }
                               //--------Firebase
-                              signUp();
                             },
                             style: ElevatedButton.styleFrom(
                                 shape: StadiumBorder(),
@@ -272,14 +312,13 @@ class _SignUpState extends State<SignUp> {
                             )),
 
                         //-----------------------------------------------------------------------
-                        
+
                         SizedBox(
                           height: 25,
                         ),
 
                         Padding(
-                          padding: const EdgeInsets.only(left: 45),
-                          //--------------------Row
+                          padding: EdgeInsets.symmetric(horizontal: 19),
                           child: Row(
                             children: [
                               Text(

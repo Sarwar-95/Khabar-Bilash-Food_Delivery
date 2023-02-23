@@ -101,7 +101,7 @@ class _SignInState extends State<SignIn> {
                           topRight: Radius.circular(50))),
                   child: Padding(
                       padding:
-                          const EdgeInsets.only(left: 25, right: 25, top: 40),
+                          const EdgeInsets.only(left: 25, right: 25, top: 30),
                       // Form key
                       child: Form(
                         key: _formkey,
@@ -239,13 +239,19 @@ class _SignInState extends State<SignIn> {
                                             password:
                                                 _passController.text.trim())
                                         .then((value) {
-                                       Navigator.push(
-                                         context,
-                                         MaterialPageRoute(
-                                             builder: (context) =>
-                                                 foodDelivery()));
+                                  
+                                  //========================= xxx ====================
+                                  if (_formkey.currentState!.validate()) {
+                                    _emailController.clear();
+                                    _passController.clear();
+                                  }
+
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  foodDelivery()));
                                     });
-                                    
                                   } on FirebaseAuthException catch (e) {
                                     if (e.code == 'user-not-found') {
                                       ScaffoldMessenger.of(context)
@@ -348,10 +354,10 @@ class _SignInState extends State<SignIn> {
                                         FontAwesomeIcons.google,
                                         color: Color.fromARGB(255, 213, 78, 68),
                                       ),
-                                      Text("  Sign Up with Google",
-                                      style: TextStyle(
-                                        fontSize: 16
-                                      ),)
+                                      Text(
+                                        "  Sign Up with Google",
+                                        style: TextStyle(fontSize: 14),
+                                      )
                                     ],
                                   )),
                             )

@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 10),
+        Duration(seconds: 5),
         (() => Navigator.of(context).pushReplacement(MaterialPageRoute(
             builder: ((BuildContext context) =>OnBoardingScreen()
                 ))
@@ -78,7 +78,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 //------------------------------
           
                 SizedBox(
-                  height: 25,
+                  height: 15,
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: 200),
