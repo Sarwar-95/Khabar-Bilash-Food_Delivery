@@ -5,6 +5,8 @@ import 'package:newapp/views/cuisines_part/biryani/pachBhai.dart';
 import 'package:newapp/views/cuisines_part/biryani/panshi.dart';
 import 'package:newapp/views/cuisines_part/biryani/undal.dart';
 
+import '../../../widgets_common/bottom_navigation_bar.dart';
+
 class Biryani extends StatelessWidget {
   const Biryani({super.key});
 
@@ -155,7 +157,13 @@ class Biryani extends StatelessWidget {
               ],
             ),
           ),
-        ));
+        ),
+      //=========== Bottom Navigation Bar ==========
+      //============================================
+      //============================================
+
+      bottomNavigationBar: BottomNavigation()
+        );
   }
 }
 

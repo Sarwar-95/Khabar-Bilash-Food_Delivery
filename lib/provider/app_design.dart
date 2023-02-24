@@ -1,11 +1,11 @@
 // import 'dart:html';
 
-import 'package:badges/badges.dart';
+//import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-//import 'counter_provider.dart';
+import 'counter_provider.dart';
 
 class Counter extends StatefulWidget {
   const Counter({super.key});
@@ -58,11 +58,11 @@ class CounterState extends State<Counter> {
         title: Text("Flutter Notification Badges"),
         actions: [
           // Error ....after flutter and dart update
-          // Badge(
-          //   position: BadgePosition.topEnd(top: 0,end: 3),
-          //   badgeContent: Text("$counter1"),
-          //   child: IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart,size: 35,),),
-          // )
+          Badge(
+            //position: BadgePosition.topEnd(top: 0,end: 3),
+            //badgeContent: Text("$counter1"),
+            child: IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart,size: 35,),),
+          )
         ],
       ),
       body: Center(

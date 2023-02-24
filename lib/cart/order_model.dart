@@ -3,13 +3,10 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class OrderModel extends ChangeNotifier {
-  
-
   //==================================================
   //-------------------- Data Loading ----------------
-  
 
-  //  Undal 
+  //  Undal
   final List _itemsUndal = [
     [
       "Chicken Rice Bowls",
@@ -33,12 +30,12 @@ class OrderModel extends ChangeNotifier {
     ],
   ];
 
-  get itemsUndal  => _itemsUndal ;
+  get itemsUndal => _itemsUndal;
 
 //=================================================================
 
 //Pach Bhai
- final List _itemsPachBhai = [
+  final List _itemsPachBhai = [
     [
       "Chicken Rice Bowls",
       "230",
@@ -63,8 +60,8 @@ class OrderModel extends ChangeNotifier {
 
   get itemsPachBhai => _itemsPachBhai;
 
- //====================================================
-   
+  //====================================================
+
   //Panchi
   final List _itemsPanchi = [
     [
@@ -89,10 +86,10 @@ class OrderModel extends ChangeNotifier {
     ],
   ];
 
-  get itemsPanchi => _itemsPanchi; 
+  get itemsPanchi => _itemsPanchi;
 
   //==================================================
-  
+
   //Bustine
   final List _itemsBustine = [
     [
@@ -117,54 +114,48 @@ class OrderModel extends ChangeNotifier {
     ],
   ];
 
-  get itemsBustine => _itemsBustine; 
-  
+  get itemsBustine => _itemsBustine;
+
   //=========================XXXXXXXXXX==========================
   //=========================XXXXXXXXXX==========================
   //=========================XXXXXXXXXX==========================
 
-  
   // Blank List
   final List _cartAdd = [];
 
   get cartAdd => _cartAdd;
-  
 
   //======================= Functions ===========================
   //======================= Functions ===========================
   //======================= Functions ===========================
 
   void cartItemsAdd(int index, int track) {
-
-    if(track==1)
-    {
+    if (track == 1) {
       _cartAdd.add(itemsUndal[index]);
     }
 
-    if(track==2)
-    {
+    if (track == 2) {
       _cartAdd.add(itemsPachBhai[index]);
     }
-    
-    if(track==3)
-    {
+
+    if (track == 3) {
       _cartAdd.add(itemsPanchi[index]);
     }
 
-    if(track==4)
-    {
+    if (track == 4) {
       _cartAdd.add(itemsBustine[index]);
     }
+    print(_cartAdd.length);
     notifyListeners();
   }
-  
+
   //------------------------------------------------------
   void removeItem(int index) {
     _cartAdd.removeAt(index);
     notifyListeners();
   }
 
- //-------------------------------------------------------
+  //-------------------------------------------------------
   String calculate() {
     double totalPrice = 0;
     for (int i = 0; i < _cartAdd.length; i++) {
@@ -173,4 +164,11 @@ class OrderModel extends ChangeNotifier {
     return totalPrice.toStringAsFixed(2);
   }
 
+  //--------------- Shopping Cart Notification ---------------
+  //----------------------------------------------------------
+  //----------------------------------------------------------
+  int notification() {
+    notifyListeners();
+    return _cartAdd.length;
+  }
 }

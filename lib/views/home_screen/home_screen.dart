@@ -1,4 +1,6 @@
 import 'dart:ui';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -17,6 +19,7 @@ import 'package:newapp/views/cuisines_part/soups/soups.dart';
 import 'package:newapp/const/colors.dart';
 import 'package:newapp/cart/order_page.dart';
 import 'package:newapp/views/login_screen/login_screen.dart';
+import 'package:newapp/widgets_common/bottom_navigation_bar.dart';
 
 class foodDelivery extends StatefulWidget {
   const foodDelivery({super.key});
@@ -31,8 +34,10 @@ class _foodDeliveryState extends State<foodDelivery> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: BackgroundColor,
-      
+
       //==============(APP BAR)===================
+      //==========================================
+      //==========================================
       appBar: AppBar(
         elevation: 0,
         title: Text(
@@ -44,23 +49,9 @@ class _foodDeliveryState extends State<foodDelivery> {
         ),
         backgroundColor: Colors.transparent,
         actions: [
-            IconButton(
+          IconButton(
             onPressed: () {},
             icon: Icon(Icons.search),
-            color: Colors.white,
-            iconSize: 22,
-          ),
-          
-          //****************************************************/
-            IconButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return OrderPage();
-              }));
-            },
-
-
-            icon: Icon(Icons.card_giftcard),
             color: Colors.white,
             iconSize: 22,
           ),
@@ -73,19 +64,18 @@ class _foodDeliveryState extends State<foodDelivery> {
               //|..................... F I R E B A S E ...........................|
               //===================================================================
 
-               FirebaseServices().googleSignOut();
-               
+              FirebaseServices().googleSignOut();
+
               //===================================================================
 
               FirebaseAuth.instance.signOut();
 
               Navigator.pop(context);
-              Navigator.push(context, 
-                   MaterialPageRoute(builder: (context)=>SignIn()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => SignIn()));
 
               //===================================================================
             },
-
             icon: Icon(Icons.logout_outlined),
             color: Colors.white,
             iconSize: 22,
@@ -94,7 +84,15 @@ class _foodDeliveryState extends State<foodDelivery> {
       ),
 
       //==================(Body)====================
+      //============================================
+      //============================================
       body: Body(),
+
+      //=========== Bottom Navigation Bar ==========
+      //============================================
+      //============================================
+
+      bottomNavigationBar: BottomNavigation()
     );
   }
 }
@@ -181,9 +179,9 @@ class Body extends StatelessWidget {
                 ],
               ),
             ),
-            
+
             //-----------------------------------
-            
+
             SizedBox(
               height: 10,
             ),
@@ -201,9 +199,9 @@ class Body extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            
+
             //-----------------------------------
-            
+
             Container(
               height: 280,
               child: ListView(

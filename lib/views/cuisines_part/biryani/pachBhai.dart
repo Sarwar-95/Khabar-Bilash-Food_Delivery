@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../../../cart/order_model.dart';
 import '../../../cart/order_page.dart';
+import '../../../widgets_common/bottom_navigation_bar.dart';
 
 
 class PachBhai extends StatelessWidget {
@@ -12,14 +13,12 @@ class PachBhai extends StatelessWidget {
   final track = 2;
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.card_giftcard),
-        onPressed: (() {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return OrderPage();
-          }));
-        }),
-      ),
+      
+      //=========== Bottom Navigation Bar ==========
+      //============================================
+      //============================================
+
+      bottomNavigationBar: BottomNavigation(),
 
       //======================== App Bar ======================
       appBar: AppBar(

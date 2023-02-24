@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../../cart/order_model.dart';
 import '../../../cart/order_page.dart';
+import '../../../widgets_common/bottom_navigation_bar.dart';
 
 class Undal extends StatelessWidget {
   const Undal({super.key});
@@ -12,14 +13,6 @@ class Undal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.card_giftcard),
-        onPressed: (() {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return OrderPage();
-          }));
-        }),
-      ),
 
       //======================== App Bar ======================
       appBar: AppBar(
@@ -215,6 +208,12 @@ class Undal extends StatelessWidget {
           ),
         ],
       ),
+
+      //=========== Bottom Navigation Bar ==========
+      //============================================
+      //============================================
+
+      bottomNavigationBar: BottomNavigation(),
     );
   }
 }
