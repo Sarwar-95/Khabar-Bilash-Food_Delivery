@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../../../cart/order_model.dart';
 import '../../../cart/order_page.dart';
+import '../../../const/colors.dart';
 import '../../../widgets_common/bottom_navigation_bar.dart';
 
 
@@ -13,6 +14,7 @@ class PachBhai extends StatelessWidget {
   final track = 2;
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: BackgroundColor,
       
       //=========== Bottom Navigation Bar ==========
       //============================================
@@ -23,7 +25,7 @@ class PachBhai extends StatelessWidget {
       //======================== App Bar ======================
       appBar: AppBar(
           elevation: 0,
-          backgroundColor: Colors.deepPurple[200],
+          backgroundColor: RrestaurantAppBarColor,
           leading: IconButton(
               onPressed: () {
                 Navigator.pop(context, true);
@@ -64,7 +66,7 @@ class PachBhai extends StatelessWidget {
                   width: 250,
                   height: 110,
                   decoration: BoxDecoration(
-                      color: Colors.white,
+                      color:PositionedContainerrColor,
                       borderRadius: BorderRadius.circular(20)),
                   child: Padding(
                     padding: EdgeInsets.all(20),
@@ -109,7 +111,7 @@ class PachBhai extends StatelessWidget {
                     ]),
                   ),
                 ),
-              ),
+               ),
             ],
           ),
 
@@ -130,7 +132,7 @@ class PachBhai extends StatelessWidget {
                           width: double.infinity,
                           decoration: BoxDecoration(
                               //color: Colors.white,
-                              color: Colors.purple.shade50,
+                              color: ItemContainerrColor,
                               border:
                                   Border.all(color: Colors.grey, width: 0.5),
                               borderRadius: BorderRadius.circular(20)),
@@ -165,7 +167,7 @@ class PachBhai extends StatelessWidget {
                                       style: TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.deepPurple),
+                                          color: Colors.black),
                                     ),
                                     //------------------2
                                     Text(
@@ -198,8 +200,8 @@ class PachBhai extends StatelessWidget {
                                                 listen: false)
                                             .cartItemsAdd(index,track);
                                       },
-                                      color: Colors.green.shade200,
-                                      child: Text("Add"),
+                                      color: AddButtonColor,
+                                      child: Text("Add", style: TextStyle(color: PrimaryTextColor)),
                                     )
                                   ],
                                 ),

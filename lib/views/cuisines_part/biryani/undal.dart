@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:newapp/const/colors.dart';
 import 'package:provider/provider.dart';
-
 import '../../../cart/order_model.dart';
 import '../../../cart/order_page.dart';
 import '../../../widgets_common/bottom_navigation_bar.dart';
@@ -13,11 +13,11 @@ class Undal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      backgroundColor: BackgroundColor,
       //======================== App Bar ======================
       appBar: AppBar(
           elevation: 0,
-          backgroundColor: Colors.deepPurple[200],
+          backgroundColor: RrestaurantAppBarColor,
           leading: IconButton(
               onPressed: () {
                 Navigator.pop(context, true);
@@ -39,7 +39,7 @@ class Undal extends StatelessWidget {
                 height: 200,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.deepPurpleAccent,
+                  //color: Colors.white10,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(25),
                     bottomRight: Radius.circular(25),
@@ -58,7 +58,7 @@ class Undal extends StatelessWidget {
                   width: 250,
                   height: 110,
                   decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: PositionedContainerrColor,
                       borderRadius: BorderRadius.circular(20)),
                   child: Padding(
                     padding: EdgeInsets.all(20),
@@ -71,24 +71,24 @@ class Undal extends StatelessWidget {
                       Text(
                         "Mirboxtula,Sylhet",
                         style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: Colors.grey),
+                            color: Colors.deepOrange.shade400),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
                             Icons.star,
-                            color: Colors.yellow,
+                            color: RatingColor,
                           ),
                           Icon(
                             Icons.star,
-                            color: Colors.yellow,
+                            color: RatingColor,
                           ),
                           Icon(
                             Icons.star,
-                            color: Colors.yellow,
+                           color: RatingColor,
                           ),
                           Icon(
                             Icons.star,
@@ -123,8 +123,8 @@ class Undal extends StatelessWidget {
                           height: 135,
                           width: double.infinity,
                           decoration: BoxDecoration(
-                              //color: Colors.white,
-                              color: Colors.purple.shade50,
+                              color: ItemContainerrColor,
+                             // color: Colors.purple.shade50,
                               border:
                                   Border.all(color: Colors.grey, width: 0.5),
                               borderRadius: BorderRadius.circular(20)),
@@ -159,7 +159,7 @@ class Undal extends StatelessWidget {
                                       style: TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.deepPurple),
+                                          color: Colors.black),
                                     ),
                                     //------------------2
                                     Text(
@@ -192,8 +192,9 @@ class Undal extends StatelessWidget {
                                                 listen: false)
                                             .cartItemsAdd(index,track);
                                       },
-                                      color: Colors.green.shade200,
-                                      child: Text("Add"),
+                                      color: AddButtonColor,
+                                      child: Text("Add",
+                                      style: TextStyle(color: PrimaryTextColor),),
                                     )
                                   ],
                                 ),

@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../../cart/order_model.dart';
 import '../../../cart/order_page.dart';
+import '../../../const/colors.dart';
 import '../../../widgets_common/bottom_navigation_bar.dart';
 
 
@@ -13,15 +14,16 @@ class Panshi extends StatelessWidget {
   final track = 3;
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: BackgroundColor,
       //=========== Bottom Navigation Bar ==========
       //============================================
       //============================================
-
+ 
       bottomNavigationBar: BottomNavigation(),
       //======================== App Bar ======================
       appBar: AppBar(
           elevation: 0,
-          backgroundColor: Colors.deepPurple[200],
+          backgroundColor: RrestaurantAppBarColor,
           leading: IconButton(
               onPressed: () {
                 Navigator.pop(context, true);
@@ -62,7 +64,7 @@ class Panshi extends StatelessWidget {
                   width: 250,
                   height: 110,
                   decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: PositionedContainerrColor,
                       borderRadius: BorderRadius.circular(20)),
                   child: Padding(
                     padding: EdgeInsets.all(20),
@@ -84,19 +86,19 @@ class Panshi extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.star,
-                            color: Colors.yellow,
+                            color: RatingColor,
                           ),
                           Icon(
                             Icons.star,
-                            color: Colors.yellow,
+                            color: RatingColor,
                           ),
                           Icon(
                             Icons.star,
-                            color: Colors.yellow,
+                            color: RatingColor,
                           ),
                           Icon(
                             Icons.star,
-                            color: Colors.yellow,
+                            color: RatingColor,
                           ),
                           Icon(
                             Icons.star,
@@ -128,7 +130,7 @@ class Panshi extends StatelessWidget {
                           width: double.infinity,
                           decoration: BoxDecoration(
                               //color: Colors.white,
-                              color: Colors.purple.shade50,
+                              color: ItemContainerrColor,
                               border:
                                   Border.all(color: Colors.grey, width: 0.5),
                               borderRadius: BorderRadius.circular(20)),
@@ -163,7 +165,7 @@ class Panshi extends StatelessWidget {
                                       style: TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.deepPurple),
+                                          color: Colors.black),
                                     ),
                                     //------------------2
                                     Text(
@@ -196,8 +198,8 @@ class Panshi extends StatelessWidget {
                                                 listen: false)
                                             .cartItemsAdd(index,track);
                                       },
-                                      color: Colors.green.shade200,
-                                      child: Text("Add"),
+                                      color: AddButtonColor,
+                                      child: Text("Add", style: TextStyle(color: PrimaryTextColor)),
                                     )
                                   ],
                                 ),

@@ -27,7 +27,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
       return CurvedNavigationBar(
           backgroundColor: BackgroundColor,
           buttonBackgroundColor: Colors.white,
-          color: Colors.white24,
+          color: Colors.white10,
           onTap: (Index) {
             if (Index == 1) {
               Navigator.push(context, MaterialPageRoute(builder: (context) {

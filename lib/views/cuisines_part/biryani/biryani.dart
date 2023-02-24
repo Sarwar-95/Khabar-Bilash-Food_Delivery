@@ -5,6 +5,7 @@ import 'package:newapp/views/cuisines_part/biryani/pachBhai.dart';
 import 'package:newapp/views/cuisines_part/biryani/panshi.dart';
 import 'package:newapp/views/cuisines_part/biryani/undal.dart';
 
+import '../../../const/colors.dart';
 import '../../../widgets_common/bottom_navigation_bar.dart';
 
 class Biryani extends StatelessWidget {
@@ -13,12 +14,12 @@ class Biryani extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.deepPurple[100],
+        backgroundColor:BackgroundColor,
 
         //======================== App Bar ======================
         appBar: AppBar(
             elevation: 1,
-            backgroundColor: Colors.deepPurple[200],
+            backgroundColor: Colors.black26,
             leading: IconButton(
                 onPressed: () {
                   Navigator.pop(context, true);
@@ -193,18 +194,19 @@ class TextItem extends StatelessWidget {
             Text(
               text,
               style: TextStyle(
-                  color: Colors.black,
+                  color: PrimaryTextColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 16),
             ),
             SizedBox(
               height: 5,
             ),
+            //====================Row1
             Row(
               children: [
                 Icon(
                   Icons.star,
-                  color: Colors.amber,
+                  color: RatingColor,
                 ),
                 SizedBox(
                   width: 4,
@@ -212,11 +214,11 @@ class TextItem extends StatelessWidget {
                 Text(
                   rating,
                   style: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.bold),
+                      color: RatingColor, fontWeight: FontWeight.bold),
                 ),
                 Text(
                   number,
-                  style: TextStyle(color: Colors.grey[600]),
+                  style: TextStyle(color: SecondaryTextColor),
                 )
               ],
             )
@@ -233,7 +235,7 @@ class TextItem extends StatelessWidget {
           children: [
             Text(
               "Sylhet Bangladesh",
-              style: TextStyle(color: Colors.grey[600]),
+              style: TextStyle(color: SecondaryTextColor),
             ),
           ],
         ),
@@ -246,7 +248,7 @@ class TextItem extends StatelessWidget {
           children: [
             Icon(
               Icons.directions_bike_outlined,
-              color: Colors.grey[600],
+              color: PrimaryTextColor,
               size: 15,
             ),
             SizedBox(
@@ -254,7 +256,7 @@ class TextItem extends StatelessWidget {
             ),
             Text(
               tk,
-              style: TextStyle(color: Colors.grey[600]),
+              style: TextStyle(color: SecondaryTextColor),
             )
           ],
         )
