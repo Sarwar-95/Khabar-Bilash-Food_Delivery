@@ -3,11 +3,12 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:newapp/cart/order_model.dart';
 import 'package:newapp/const/colors.dart';
+import 'package:newapp/views/payment_gateway/payment_gateway.dart';
 import 'package:provider/provider.dart';
 
 class OrderPage extends StatelessWidget {
-  const OrderPage({super.key});
-
+  // const OrderPage({super.key});
+  var obj = HomeScreen();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,25 +109,38 @@ class OrderPage extends StatelessWidget {
                             )
                           ],
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.orangeAccent[200],
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: Row(
-                              children: [
-                                Text(
-                                  "Pay Now",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                Icon(
-                                  Icons.arrow_forward_ios,
-                                  size: 16,
-                                  color: Colors.white,
-                                )
-                              ],
+
+                        //  Click the button of pay now
+                        // then navigate to payment_gateway
+                        GestureDetector(
+                          onTap: () {
+                            //--------------------------------
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomeScreen()));
+                            //--------------------------------
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.orangeAccent[200],
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(12.0),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "Pay Now",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_ios,
+                                    size: 16,
+                                    color: Colors.white,
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         )

@@ -27,10 +27,20 @@ import 'views/login_screen/login_screen.dart';
 import 'views/signup_screen/signup_screen.dart';
 import 'views/splash_screen/splash_screen.dart';
 import 'views/home_screen/home_screen.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 
-void main() async {
-  // Firebase---
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  //---------------------------------------
+  //---------------------------------------
+  // Add publish key of stripe
+  Stripe.publishableKey = "pk_test_51MfNKcBb06WVShYGyiMpYue9xtFD6BMcKeV4sDKLRc1bFN2JOLrqUfdsdORiv8DIHQVXlNwDWvJ50Xswq9BHi7wg002Pb3WHcd";
+  Stripe.instance.applySettings();
+  //Stripe Payment Gateway
+  //------------------------------->>>
+
+  // Firebase---
+
   await Firebase.initializeApp();
   runApp(MultiProvider(providers: [
     //ChangeNotifierProvider(create: (_)=>CounterApp(),),
@@ -41,8 +51,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-   final navigatorKey = GlobalKey<NavigatorState>();
-
+  final navigatorKey = GlobalKey<NavigatorState>();
 
   MyApp({super.key});
 
@@ -53,11 +62,11 @@ class MyApp extends StatelessWidget {
       home:
 
           //-----------------------
-          foodDelivery(),
+          //foodDelivery(),
           //----------------------
-          //SplashScreen(),
-          //OnBoardingScreen()
-          //ForgetPassword()
+          SplashScreen(),
+      //OnBoardingScreen()
+      //ForgetPassword()
       //Counter()
       //Home(),
       //SignIn()
@@ -65,7 +74,7 @@ class MyApp extends StatelessWidget {
 
       // ---Cuisines---
       //Biryani(),
-          //Undal(),
+      //Undal(),
       //Bustine()
       //Burgers(),
       //Cafe()
