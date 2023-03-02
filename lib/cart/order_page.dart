@@ -6,9 +6,14 @@ import 'package:newapp/const/colors.dart';
 import 'package:newapp/views/payment_gateway/payment_gateway.dart';
 import 'package:provider/provider.dart';
 
-class OrderPage extends StatelessWidget {
-  // const OrderPage({super.key});
-  var obj = HomeScreen();
+class OrderPage extends StatefulWidget {
+  const OrderPage({super.key});
+
+  @override
+  State<OrderPage> createState() => _OrderPageState();
+}
+
+class _OrderPageState extends State<OrderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,8 +73,8 @@ class OrderPage extends StatelessWidget {
                               ),
                               trailing: IconButton(
                                 icon: Icon(
-                                  Icons.cancel,
-                                  color: Colors.green,
+                                  Icons.delete,
+                                  color: Colors.red.shade400,
                                   size: 30,
                                 ),
                                 onPressed: (() {
@@ -97,7 +102,7 @@ class OrderPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Total Price",
+                              "Total5 Price",
                               style: TextStyle(color: Colors.green[100]),
                             ),
                             Text(
@@ -114,11 +119,15 @@ class OrderPage extends StatelessWidget {
                         // then navigate to payment_gateway
                         GestureDetector(
                           onTap: () {
+                            String getValue = value.calculate();
+
                             //--------------------------------
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => HomeScreen()));
+                                    builder: (context) => PaymentGateway(
+                                          pymentValue: getValue,
+                                        )));
                             //--------------------------------
                           },
                           child: Container(

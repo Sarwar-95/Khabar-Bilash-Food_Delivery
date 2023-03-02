@@ -157,11 +157,14 @@ class OrderModel extends ChangeNotifier {
 
   //-------------------------------------------------------
   String calculate() {
-    double totalPrice = 0;
+    int totalPrice = 0;
     for (int i = 0; i < _cartAdd.length; i++) {
-      totalPrice += double.parse(_cartAdd[i][1]);
+      totalPrice += int.parse(_cartAdd[i][1]);
     }
-    return totalPrice.toStringAsFixed(2);
+    //------------------->>>
+    var temp = totalPrice.toStringAsFixed(2);
+    var temp2 = temp.split('.');
+    return temp2[0];
   }
 
   //--------------- Shopping Cart Notification ---------------

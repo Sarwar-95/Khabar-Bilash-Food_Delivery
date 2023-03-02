@@ -33,67 +33,92 @@ class _foodDeliveryState extends State<foodDelivery> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: BackgroundColor,
+        backgroundColor: BackgroundColor,
 
-      //==============(APP BAR)===================
-      //==========================================
-      //==========================================
-      appBar: AppBar(
-        elevation: 0,
-        title: Text(
-          "Khabar-Bilash",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
+        //==============( Drawer )===================
+        //==========================================
+        //==========================================
+        drawer: Drawer(
+          backgroundColor: Colors.white,
+          child: ListView(
+          children: [
+            UserAccountsDrawerHeader
+            (
+            decoration: BoxDecoration(
+              color: BackgroundColor
+            ),
+            currentAccountPicture: CircleAvatar(
+            backgroundImage: NetworkImage(FirebaseAuth.instance.currentUser!.photoURL!),
+            ),
+            accountName: Text(FirebaseAuth.instance.currentUser!.displayName!), 
+            accountEmail: Text(FirebaseAuth.instance.currentUser!.email!)
+            ),
+            ListTile(
+              leading:Icon(Icons.logout_outlined,
+              color: Colors.black,
+              size: 22),
+              title: Text("Log out",style: TextStyle(
+                fontSize: 20,
+              ),),
+              onTap: ()
+              {
+                //===================================================================
+                //|..................... F I R E B A S E ...........................|
+                //===================================================================
+
+                FirebaseServices().googleSignOut();
+
+                //===================================================================
+
+                FirebaseAuth.instance.signOut();
+
+                Navigator.pop(context);
+                Navigator.push(
+                context, MaterialPageRoute(builder: (context) => SignIn()));
+
+                //===================================================================
+              },
+            )
+          ],
+        )),
+
+        //==============(APP BAR)===================
+        //==========================================
+        //==========================================
+        appBar: AppBar(
+          elevation: 0,
+          title: Center(
+            child: Text(
+              "Khabar-Bilash",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+            ),
           ),
+          backgroundColor: Colors.transparent,
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.search),
+              color: Colors.white,
+              iconSize: 22,
+            ),
+
+            //****************************************************/
+          ],
         ),
-        backgroundColor: Colors.transparent,
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.search),
-            color: Colors.white,
-            iconSize: 22,
-          ),
 
-          //****************************************************/
+        //==================(Body)====================
+        //============================================
+        //============================================
+        body: Body(),
 
-          IconButton(
-            onPressed: () {
-              //===================================================================
-              //|..................... F I R E B A S E ...........................|
-              //===================================================================
+        //=========== Bottom Navigation Bar ==========
+        //============================================
+        //============================================
 
-              FirebaseServices().googleSignOut();
-
-              //===================================================================
-
-              FirebaseAuth.instance.signOut();
-
-              Navigator.pop(context);
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => SignIn()));
-
-              //===================================================================
-            },
-            icon: Icon(Icons.logout_outlined),
-            color: Colors.white,
-            iconSize: 22,
-          ),
-        ],
-      ),
-
-      //==================(Body)====================
-      //============================================
-      //============================================
-      body: Body(),
-
-      //=========== Bottom Navigation Bar ==========
-      //============================================
-      //============================================
-
-      bottomNavigationBar: BottomNavigation()
-    );
+        bottomNavigationBar: BottomNavigation());
   }
 }
 

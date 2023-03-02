@@ -46,7 +46,7 @@ class OnBoardingScreen extends StatelessWidget {
 
           body: "Your order will be \n"
               "immediately collected and \n"
-              "sent by our corier",
+              "sent by our courier",
           image: Image.asset("images/onboarding_img/courier.png"),
 
           //------- Design Part -------

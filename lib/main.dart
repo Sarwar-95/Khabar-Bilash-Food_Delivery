@@ -21,6 +21,7 @@ import 'package:newapp/provider/app_design.dart';
 import 'package:newapp/provider/counter_provider.dart';
 import 'package:newapp/views/forget_password/forget_password.dart';
 import 'package:newapp/views/onboarding_screen/onboarding_screen.dart';
+import 'package:newapp/views/payment_gateway/payment_gateway.dart';
 import 'package:provider/provider.dart';
 import 'Extra/practice_3.dart';
 import 'views/login_screen/login_screen.dart';
@@ -34,7 +35,8 @@ Future<void> main() async {
   //---------------------------------------
   //---------------------------------------
   // Add publish key of stripe
-  Stripe.publishableKey = "pk_test_51MfNKcBb06WVShYGyiMpYue9xtFD6BMcKeV4sDKLRc1bFN2JOLrqUfdsdORiv8DIHQVXlNwDWvJ50Xswq9BHi7wg002Pb3WHcd";
+  Stripe.publishableKey =
+      "pk_test_51MfNKcBb06WVShYGyiMpYue9xtFD6BMcKeV4sDKLRc1bFN2JOLrqUfdsdORiv8DIHQVXlNwDWvJ50Xswq9BHi7wg002Pb3WHcd";
   Stripe.instance.applySettings();
   //Stripe Payment Gateway
   //------------------------------->>>
@@ -64,7 +66,8 @@ class MyApp extends StatelessWidget {
           //-----------------------
           //foodDelivery(),
           //----------------------
-          SplashScreen(),
+          //HomeScreen(),
+      SplashScreen(),
       //OnBoardingScreen()
       //ForgetPassword()
       //Counter()
