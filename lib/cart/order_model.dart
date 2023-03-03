@@ -121,7 +121,7 @@ class OrderModel extends ChangeNotifier {
   //=========================XXXXXXXXXX==========================
 
   // Blank List
-  final List _cartAdd = [];
+  List _cartAdd = [];
 
   get cartAdd => _cartAdd;
 

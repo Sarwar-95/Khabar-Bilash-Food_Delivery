@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:newapp/views/Red_House/Red_House/redhouse.dart';
 import 'package:newapp/views/cuisines_part/biryani/undal.dart';
 import 'package:newapp/views/cuisines_part/pizza/pizza.dart';
 import 'package:newapp/views/cuisines_part/biryani/biryani.dart';
@@ -60,6 +61,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       debugShowCheckedModeBanner: false,
       home:
 
@@ -67,14 +69,15 @@ class MyApp extends StatelessWidget {
           //foodDelivery(),
           //----------------------
           //HomeScreen(),
-      SplashScreen(),
+      //SplashScreen(),
       //OnBoardingScreen()
       //ForgetPassword()
       //Counter()
       //Home(),
-      //SignIn()
+       SignIn()
       //SignUp()
-
+      //------------
+      //redhouse()
       // ---Cuisines---
       //Biryani(),
       //Undal(),

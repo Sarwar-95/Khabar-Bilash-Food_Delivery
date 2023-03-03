@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:newapp/firebase/auth/google_signin.dart';
+import 'package:newapp/terms_and_conditions/terms_and_policy.dart';
 import 'package:newapp/views/forget_password/forget_password.dart';
 import 'package:newapp/views/home_screen/home_screen.dart';
 import 'package:newapp/views/splash_screen/splash_screen.dart';
@@ -218,7 +219,10 @@ class _SignInState extends State<SignIn> {
                             SizedBox(
                               height: 20,
                             ),
-                            TextRich(),
+                            //-------------------------------Text Rich-----------------------------
+                            // TextRich(),
+                            TermsAndPolicy(),
+                            //======================================================================
                             SizedBox(
                               height: 20,
                             ),

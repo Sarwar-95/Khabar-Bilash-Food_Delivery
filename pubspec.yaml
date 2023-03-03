@@ -53,6 +53,9 @@ dependencies:
   curved_navigation_bar: ^1.0.3
 
   flutter_stripe: ^8.0.0+1
+  flutter_markdown: ^0.6.14
+
+
   
   
 
@@ -86,6 +89,9 @@ flutter:
   assets:
     - images/
     - images/onboarding_img/
+    - images/Red House Image/SOUP/
+    - images/Royal_Kitchen_images/
+    - images/terms_and_conditions/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
