@@ -66,7 +66,7 @@ class MyApp extends StatelessWidget {
       home:
 
           //-----------------------
-          //foodDelivery(),
+          foodDelivery(),
           //----------------------
           //HomeScreen(),
       //SplashScreen(),
@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
       //ForgetPassword()
       //Counter()
       //Home(),
-       SignIn()
+      // SignIn()
       //SignUp()
       //------------
       //redhouse()

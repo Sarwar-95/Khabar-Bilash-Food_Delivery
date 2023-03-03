@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:newapp/views/Red_House/Red_House/chowmein.dart';
 import 'package:newapp/views/Red_House/Red_House/popular_food.dart';
 import 'package:newapp/views/Red_House/Red_House/rice_bowl.dart';
 import 'package:newapp/views/Red_House/Red_House/salad.dart';
 import 'package:newapp/views/Red_House/Red_House/soup.dart';
-
 import 'biriyani.dart';
-
 
 class FoodMenu extends StatefulWidget {
   @override
@@ -19,7 +18,7 @@ class _FoodMenuState extends State<FoodMenu>
   @override
   void initState() {
     super.initState();
-    controller = TabController(length: 5, vsync: this);
+    controller = TabController(length: 6, vsync: this);
   }
 
   @override
@@ -85,6 +84,15 @@ class _FoodMenuState extends State<FoodMenu>
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              Text(
+                textAlign: TextAlign.center,
+                "Chowmein",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              )
             ],
           ),
         ),
@@ -96,8 +104,9 @@ class _FoodMenuState extends State<FoodMenu>
               popular_food(),
               soup(),
               biriyani(),
-              ricebowl(),
+              rice_bowl(),
               salad(),
+              chowmein(),
             ],
           ),
         ),
