@@ -18,7 +18,7 @@ class _PaymentGatewayState extends State<PaymentGateway> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: BackgroundColor,
+      backgroundColor:Colors.white,
       appBar: AppBar(
         title: Center(child: const Text('Payment Method')),
         backgroundColor: RrestaurantAppBarColor,
@@ -31,16 +31,35 @@ class _PaymentGatewayState extends State<PaymentGateway> {
 
             await makePayment(value); //future function calling
           },
-          child: Container(
-            height: 50,
-            width: 200,
-            color: Colors.green,
-            child: const Center(
-              child: Text(
-                'Stripe',
-                style: TextStyle(color: Colors.white, fontSize: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 50,
+                width: 200,
+                color: Colors.orange,
+                child: const Center(
+                  child: Text(
+                    'Stripe',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                ),
               ),
-            ),
+              SizedBox(
+                height: 10,
+              ),
+                Container(
+                height: 50,
+                width: 200,
+                color: Colors.green,
+                child: const Center(
+                  child: Text(
+                    'Cash On',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

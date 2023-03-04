@@ -114,8 +114,8 @@ class _soupState extends State<soup> {
                     height: 120,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: NetworkImage(
-                            "https://hot-thai-kitchen.com/wp-content/uploads/2013/03/tom-yum-goong-blog.jpg"),
+                        image: AssetImage(
+                            "images/soup.jpeg"),
                         fit: BoxFit.fill,
                       ),
                       borderRadius: BorderRadius.circular(50),

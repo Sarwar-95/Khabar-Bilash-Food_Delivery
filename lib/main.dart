@@ -66,10 +66,10 @@ class MyApp extends StatelessWidget {
       home:
 
           //-----------------------
-          foodDelivery(),
+          //foodDelivery(),
           //----------------------
           //HomeScreen(),
-      //SplashScreen(),
+      SplashScreen(),
       //OnBoardingScreen()
       //ForgetPassword()
       //Counter()

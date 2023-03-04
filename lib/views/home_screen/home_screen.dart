@@ -31,6 +31,7 @@ class foodDelivery extends StatefulWidget {
 
 class _foodDeliveryState extends State<foodDelivery> {
 //====================================================
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,11 +47,12 @@ class _foodDeliveryState extends State<foodDelivery> {
                 UserAccountsDrawerHeader(
                     decoration: BoxDecoration(color: BackgroundColor),
                     currentAccountPicture: CircleAvatar(
-                      backgroundImage: NetworkImage(
-                          FirebaseAuth.instance.currentUser!.photoURL!),
+                      backgroundColor: Colors.black,
+                     backgroundImage: AssetImage("images/delivery.png"),
                     ),
-                    accountName:
-                        Text(FirebaseAuth.instance.currentUser!.displayName!),
+                    accountName: Text(""),
+                    // accountName:
+                    //     Text(FirebaseAuth.instance.currentUser!.displayName!),
                     accountEmail:
                         Text(FirebaseAuth.instance.currentUser!.email!)),
                 ListTile(
@@ -261,7 +263,7 @@ class Body extends StatelessWidget {
                         height: 5,
                       ),
                       Cuisines(
-                        text: "Biryani",
+                        text: "Rice-Bowl",
                       ),
                       SizedBox(
                         height: 20,
@@ -605,73 +607,6 @@ class Body extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Royal",
-                              style: TextStyle(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text(
-                              "Kitchen",
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            )
-                          ],
-                        ),
-                        Spacer(),
-                        Container(
-                          width: 35,
-                          height: 35,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle, color: Colors.white),
-                          child: Icon(
-                            Icons.favorite_border,
-                            size: 20,
-                            color: Colors.red,
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
-            //==================== Restaurants  2 ======================
-            GestureDetector(
-              onTap: () {
-                
-              },
-              child: Container(
-                height: 170,
-                width: double.infinity,
-                padding: EdgeInsets.all(20),
-                margin: EdgeInsets.only(bottom: 20),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    image: DecorationImage(
-                        image: AssetImage("images/six.jpg"), fit: BoxFit.cover),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.white,
-                          blurRadius: 10,
-                          offset: Offset(3, 7)),
-                    ]),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
                               "Red",
                               style: TextStyle(
                                   fontSize: 25,
@@ -708,67 +643,145 @@ class Body extends StatelessWidget {
                 ),
               ),
             ),
+            //==================== Restaurants  2 ======================
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => redhouse()))); 
+              },
+              child: Container(
+                height: 170,
+                width: double.infinity,
+                padding: EdgeInsets.all(20),
+                margin: EdgeInsets.only(bottom: 20),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    image: DecorationImage(
+                        image: AssetImage("images/six.jpg"), fit: BoxFit.cover),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.white,
+                          blurRadius: 10,
+                          offset: Offset(3, 7)),
+                    ]),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Royal",
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              "Kitchen",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            )
+                          ],
+                        ),
+                        Spacer(),
+                        Container(
+                          width: 35,
+                          height: 35,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.white),
+                          child: Icon(
+                            Icons.favorite_border,
+                            size: 20,
+                            color: Colors.red,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
 
             //==================== Restaurants  3 ======================
-            Container(
-              height: 170,
-              width: double.infinity,
-              padding: EdgeInsets.all(20),
-              margin: EdgeInsets.only(bottom: 20),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(
-                      image: AssetImage("images/seven.jpg"), fit: BoxFit.cover),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.white,
-                        blurRadius: 10,
-                        offset: Offset(3, 7)),
-                  ]),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Alpine",
-                            style: TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "Restaurant",
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          )
-                        ],
-                      ),
-                      Spacer(),
-                      Container(
-                        width: 35,
-                        height: 35,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.white),
-                        child: Icon(
-                          Icons.favorite_border,
-                          size: 20,
-                          color: Colors.red,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => redhouse()))); 
+              },
+              child: Container(
+                height: 170,
+                width: double.infinity,
+                padding: EdgeInsets.all(20),
+                margin: EdgeInsets.only(bottom: 20),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    image: DecorationImage(
+                        image: AssetImage("images/seven.jpg"), fit: BoxFit.cover),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.white,
+                          blurRadius: 10,
+                          offset: Offset(3, 7)),
+                    ]),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Alpine",
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              "Restaurant",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            )
+                          ],
                         ),
-                      ),
-                    ],
-                  )
-                ],
+                        Spacer(),
+                        Container(
+                          width: 35,
+                          height: 35,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.white),
+                          child: Icon(
+                            Icons.favorite_border,
+                            size: 20,
+                            color: Colors.red,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             )
           ],

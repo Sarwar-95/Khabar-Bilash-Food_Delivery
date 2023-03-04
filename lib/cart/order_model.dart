@@ -6,7 +6,7 @@ class OrderModel extends ChangeNotifier {
   //==================================================
   //-------------------- Data Loading ----------------
 
-  //  Undal
+  //  Undal=1
   final List _itemsUndal = [
     [
       "Chicken Rice Bowls",
@@ -34,7 +34,7 @@ class OrderModel extends ChangeNotifier {
 
 //=================================================================
 
-//Pach Bhai
+//Pach Bhai=2
   final List _itemsPachBhai = [
     [
       "Chicken Rice Bowls",
@@ -62,7 +62,7 @@ class OrderModel extends ChangeNotifier {
 
   //====================================================
 
-  //Panchi
+  //Panchi=3
   final List _itemsPanchi = [
     [
       "Chicken Rice Bowls",
@@ -90,7 +90,7 @@ class OrderModel extends ChangeNotifier {
 
   //==================================================
 
-  //Bustine
+  //Bustine=4
   final List _itemsBustine = [
     [
       "Chicken Rice Bowls -D",
@@ -115,7 +115,6 @@ class OrderModel extends ChangeNotifier {
   ];
 
   get itemsBustine => _itemsBustine;
-
   //=========================XXXXXXXXXX==========================
   //=========================XXXXXXXXXX==========================
   //=========================XXXXXXXXXX==========================
@@ -145,6 +144,7 @@ class OrderModel extends ChangeNotifier {
     if (track == 4) {
       _cartAdd.add(itemsBustine[index]);
     }
+
     print(_cartAdd.length);
     notifyListeners();
   }

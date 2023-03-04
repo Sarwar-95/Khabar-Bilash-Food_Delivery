@@ -240,8 +240,8 @@ class _SignInState extends State<SignIn> {
                                         .signInWithEmailAndPassword(
                                             email: _emailController.text.trim(),
                                             password:
-                                                _passController.text.trim())
-                                        .then((value) {
+                                                _passController.text.trim());
+                                        
                                   
                                   //========================= xxx ====================
                                   if (_formkey.currentState!.validate()) {
@@ -254,7 +254,6 @@ class _SignInState extends State<SignIn> {
                                           MaterialPageRoute(
                                               builder: (context) =>
                                                   foodDelivery()));
-                                    });
                                   } on FirebaseAuthException catch (e) {
                                     if (e.code == 'user-not-found') {
                                       ScaffoldMessenger.of(context)
